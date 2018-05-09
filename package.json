@@ -1,0 +1,33 @@
+{
+  "name": "reload-shoot-block",
+  "version": "1.0.0",
+  "description": "A nodejs based multiplayer Western spin on the classic Rock, Paper, Scissors!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigbeno37/ReloadShootBlock.git"
+  },
+  "keywords": [
+    "rock",
+    "paper",
+    "scissors",
+    "western",
+    "multiplayer",
+    "express",
+    "sockets",
+    "web",
+    "socket"
+  ],
+  "author": "bigbeno37",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigbeno37/ReloadShootBlock/issues"
+  },
+  "homepage": "https://bigbeno37.github.com/ReloadShootBlock",
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
