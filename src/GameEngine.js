@@ -14,6 +14,12 @@ class GameEngine {
 
         this._player1CanReload = true;
         this._player2CanReload = true;
+
+        this._player1CanBlock = true;
+        this._player2CanBlock = true;
+
+        this._player1UnsuccessfulBlocks = 0;
+        this._player2UnsuccessfulBlocks = 0;
     }
 
 
@@ -49,7 +55,15 @@ class GameEngine {
         return this._player2CanReload;
     }
 
-    calculateWinner(player1Event, player2Event) {
+    get player1CanBlock() {
+        return this._player1CanBlock;
+    }
+
+    get player2CanBlock() {
+        return this._player2CanBlock;
+    }
+
+    processRound(player1Event, player2Event) {
         // Determine if bullets need to be removed and if so, remove the bullets
         if (player1Event === Events.SHOOT) {
             this._player1Bullets--;
@@ -67,7 +81,7 @@ class GameEngine {
         }
 
         if (player2Event === Events.RELOAD && player1Event !== Events.SHOOT) {
-            this._player1Bullets++;
+            this._player2Bullets++;
         }
 
         // Determine if points are to be incremented
@@ -80,11 +94,37 @@ class GameEngine {
             this._player2Points++;
         }
 
+        // Determine if certain actions are to be disabled
         this._player1CanShoot = this._player1Bullets >= 1;
         this._player2CanShoot = this._player2Bullets >= 1;
 
         this._player1CanReload = this._player1Bullets < 6;
         this._player2CanReload = this._player2Bullets < 6;
+
+
+        // Determine if the player has unsuccessfully blocked an attack
+        // i.e. blocked when there was nothing to block
+        if (player1Event === Events.BLOCK && player2Event !== Events.SHOOT) {
+            this._player1UnsuccessfulBlocks++;
+        }
+
+        if (player2Event === Events.BLOCK && player1Event !== Events.SHOOT) {
+            this._player2UnsuccessfulBlocks++;
+        }
+
+        if (this._player1UnsuccessfulBlocks === 2) {
+            this._player1CanBlock = false;
+            this._player1UnsuccessfulBlocks = 0;
+        } else {
+            this._player1CanBlock = true;
+        }
+
+        if (this._player2UnsuccessfulBlocks === 2) {
+            this._player2CanBlock = false;
+            this._player2UnsuccessfulBlocks = 0;
+        } else {
+            this._player2CanBlock = true;
+        }
     }
 
 
