@@ -1,5 +1,5 @@
-const GameEngine = require('../src/GameEngine');
-const Events = require('../src/Events');
+const GameEngine = require('../server/GameEngine');
+const Events = require('../server/Events');
 
 let gameEngine;
 
