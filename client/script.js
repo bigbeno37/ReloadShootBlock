@@ -22,5 +22,5 @@ function createGame() {
 
     server.send('create lobby');
 
-    console.log("sent something");
+    console.log("sent request to create lobby");
 }

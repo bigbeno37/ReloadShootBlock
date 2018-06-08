@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const Bases = require('bases');
 const Lobby = require('./Lobby');
+const Server = require('./Server');
 
 app.use(express.static(__dirname + '/../client/'));
 
@@ -16,7 +17,7 @@ const wsServer = new WebSocket.Server({ port: 8080 });
 console.log("WebSocket Server started at port 8080");
 
 // List of Lobby instances
-let lobbies = [];
+const server = new Server();
 
 wsServer.on('connection', (connection) => {
     connection.on('message', (message) => {
@@ -26,9 +27,9 @@ wsServer.on('connection', (connection) => {
                             Math.floor(Math.random() * 1679616)
                           )).toString().toUpperCase()
 
-            lobbies.push(new Lobby(lobbyID));
+            server.createLobby(lobbyID);
 
-            findLobbyWithID(lobbyID).connectPlayer(connection);
+            server.connectPlayerToLobby(connection, lobbyID);
 
             console.log(`Lobby ID ${lobbyID} created!`);
         }
@@ -36,14 +37,3 @@ wsServer.on('connection', (connection) => {
         console.log(`Received ${message}`);
     });
 });
-
-// Return lobby with specified ID if exists, otherwise return null
-function findLobbyWithID(id) {
-    for (let i = 0; i < lobbies.length; i++) {
-        if (lobbies[i].id === id) {
-            return lobbies[i];
-        }
-    }
-
-    return null;
-}
