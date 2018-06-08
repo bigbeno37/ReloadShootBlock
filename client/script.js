@@ -20,7 +20,7 @@ $(function() {
 function createGame() {
     // TODO: Use websocket to create new lobby
 
-    server.send('something');
+    server.send('create lobby');
 
     console.log("sent something");
 }
