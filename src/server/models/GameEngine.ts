@@ -1,4 +1,4 @@
-const Events = require('./Events');
+const Events = require('../Events');
 
 class GameEngine {
 

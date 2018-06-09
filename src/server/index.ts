@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const Bases = require('bases');
-const Lobby = require('./Lobby');
-const Server = require('./Server');
+const Server = require('./models/Server');
 
 app.use(express.static(__dirname + '/../client/'));
 
@@ -25,7 +24,7 @@ wsServer.on('connection', (connection) => {
             // Generate a number between 0 and ZZZZ to act as the lobby ID
             let lobbyID = (Bases.toBase36(
                             Math.floor(Math.random() * 1679616)
-                          )).toString().toUpperCase()
+                          )).toString().toUpperCase();
 
             server.createLobby(lobbyID);
 
