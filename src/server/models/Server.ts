@@ -19,7 +19,7 @@ export default class Server {
     }
 
     // Return lobby with specified ID if exists, otherwise return null
-    findLobbyWithID(id: string) {
+    findLobbyWithID(id: string): Lobby | null {
         for (let i = 0; i < this.lobbies.length; i++) {
             if (this.lobbies[i].getID() === id) {
                 return this.lobbies[i];

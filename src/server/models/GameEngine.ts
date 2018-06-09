@@ -1,16 +1,9 @@
 import Player from "./Player";
-
-enum Events {
-    RELOAD,
-    SHOOT,
-    BLOCK
-}
+import Events from './Events';
 
 export default class GameEngine {
-    public static readonly Events = Events;
-
-    readonly _player1: Player;
-    readonly _player2: Player;
+    private readonly _player1: Player;
+    private readonly _player2: Player;
 
     constructor() {
         this._player1 = new Player();
@@ -25,7 +18,7 @@ export default class GameEngine {
         return this._player2;
     }
 
-    processRound(player1Event: Events, player2Event: Events) {
+    processRound(player1Event: Events, player2Event: Events): Player | null{
         // Determine if bullets need to be removed and if so, remove the bullets
         if (player1Event === Events.SHOOT) {
             this._player1.shoot();
@@ -46,16 +39,6 @@ export default class GameEngine {
             this._player2.reload();
         }
 
-        // Determine if points are to be incremented
-        // i.e. a player shot and the other tried to reload
-        if (player1Event === Events.SHOOT && player2Event === Events.RELOAD) {
-            this._player1.wonRound();
-        }
-
-        if (player2Event === Events.SHOOT && player1Event === Events.RELOAD) {
-            this._player2.wonRound();
-        }
-
         // Determine if the player has unsuccessfully blocked an attack
         // i.e. blocked when there was nothing to block
         if (player1Event === Events.BLOCK && player2Event !== Events.SHOOT) {
@@ -73,6 +56,22 @@ export default class GameEngine {
         if (player2Event !== Events.BLOCK) {
             this._player2.resetBlocks()
         }
+
+        // Determine if points are to be incremented
+        // i.e. a player shot and the other tried to reload
+        if (player1Event === Events.SHOOT && player2Event === Events.RELOAD) {
+            this._player1.wonRound();
+
+            return this._player1;
+        }
+
+        if (player2Event === Events.SHOOT && player1Event === Events.RELOAD) {
+            this._player2.wonRound();
+
+            return this._player2;
+        }
+
+        return null;
     }
 
 

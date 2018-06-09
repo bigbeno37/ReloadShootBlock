@@ -1,7 +1,10 @@
+import Events from "./Events";
+
 export default class Player {
     private _bullets: number;
     private _points: number;
     private _unsuccessfulBlocks: number;
+    private _choice: Events;
 
     constructor() {
         this._bullets = 1;
@@ -53,5 +56,13 @@ export default class Player {
 
     resetBlocks() {
         this._unsuccessfulBlocks = 0;
+    }
+
+    setChoice(choice: Events) {
+        this._choice = choice;
+    }
+
+    getChoice() {
+        return this._choice;
     }
 }
