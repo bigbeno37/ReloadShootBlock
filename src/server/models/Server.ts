@@ -1,28 +1,31 @@
-const Lobby = require('./Lobby');
+import WebSocket from 'ws';
+import Lobby from "./Lobby";
 
-class Server {
+export default class Server {
+    readonly lobbies: Lobby[];
+
     constructor() {
-        this._lobbies = [];
+        this.lobbies = [];
     }
 
-    createLobby(id) {
-        this._lobbies.push(new Lobby(id));
+    createLobby(id: string) {
+        this.lobbies.push(new Lobby(id));
     }
 
-    connectPlayerToLobby(connection, id) {
-        this.findLobbyWithID(id).connectPlayer(connection);
+    connectPlayerToLobby(connection: WebSocket, id: string) {
+        let lobby = this.findLobbyWithID(id);
+
+        if (lobby !== null) lobby.connectPlayer(connection);
     }
 
     // Return lobby with specified ID if exists, otherwise return null
-    findLobbyWithID(id) {
-        for (let i = 0; i < this._lobbies.length; i++) {
-            if (this._lobbies[i].id === id) {
-                return this._lobbies[i];
+    findLobbyWithID(id: string) {
+        for (let i = 0; i < this.lobbies.length; i++) {
+            if (this.lobbies[i].getID() === id) {
+                return this.lobbies[i];
             }
         }
 
         return null;
     }
 }
-
-module.exports = Server;

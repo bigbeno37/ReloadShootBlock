@@ -1,7 +1,6 @@
-const GameEngine = require('../server/models/GameEngine');
-const Events = require('../server/src/Events');
+import GameEngine from "../server/models/GameEngine";
 
-let gameEngine;
+let gameEngine: GameEngine;
 
 describe('Game Engine', () => {
     beforeEach(() => {
@@ -9,97 +8,97 @@ describe('Game Engine', () => {
     });
 
     it('removes a bullet when a player shoots', () => {
-        expect(gameEngine.player1Bullets).toBe(1);
+        expect(gameEngine.getPlayer1().getBullets()).toBe(1);
 
-        gameEngine.processRound(Events.SHOOT, Events.RELOAD);
+        gameEngine.processRound(GameEngine.Events.SHOOT, GameEngine.Events.RELOAD);
 
-        expect(gameEngine.player1Bullets).toBe(0);
+        expect(gameEngine.getPlayer1().getBullets()).toBe(0);
     });
 
     it('adds a point to player 1 when they win', () => {
-        expect(gameEngine.player1Points).toBe(0);
-        expect(gameEngine.player2Points).toBe(0);
+        expect(gameEngine.getPlayer1().getPoints()).toBe(0);
+        expect(gameEngine.getPlayer2().getPoints()).toBe(0);
 
-        gameEngine.processRound(Events.SHOOT, Events.RELOAD);
+        gameEngine.processRound(GameEngine.Events.SHOOT, GameEngine.Events.RELOAD);
 
-        expect(gameEngine.player1Points).toBe(1);
-        expect(gameEngine.player2Points).toBe(0);
+        expect(gameEngine.getPlayer1().getPoints()).toBe(1);
+        expect(gameEngine.getPlayer2().getPoints()).toBe(0);
     });
 
     it('adds no points when both players shoot', () => {
-        expect(gameEngine.player1Points).toBe(0);
-        expect(gameEngine.player2Points).toBe(0);
+        expect(gameEngine.getPlayer1().getPoints()).toBe(0);
+        expect(gameEngine.getPlayer2().getPoints()).toBe(0);
 
-        gameEngine.processRound(Events.SHOOT, Events.SHOOT);
+        gameEngine.processRound(GameEngine.Events.SHOOT, GameEngine.Events.SHOOT);
 
-        expect(gameEngine.player1Points).toBe(0);
-        expect(gameEngine.player2Points).toBe(0);
+        expect(gameEngine.getPlayer1().getPoints()).toBe(0);
+        expect(gameEngine.getPlayer2().getPoints()).toBe(0);
     });
 
     it('disables firing when bullets are below 1', () => {
-        expect(gameEngine.player1CanShoot).toBeTruthy();
-        expect(gameEngine.player1Bullets).toBe(1);
+        expect(gameEngine.getPlayer1().canShoot()).toBeTruthy();
+        expect(gameEngine.getPlayer1().getBullets()).toBe(1);
 
-        gameEngine.processRound(Events.SHOOT, Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.SHOOT, GameEngine.Events.BLOCK);
 
-        expect(gameEngine.player1CanShoot).toBeFalsy();
-        expect(gameEngine.player1Bullets).toBe(0);
+        expect(gameEngine.getPlayer1().canShoot()).toBeFalsy();
+        expect(gameEngine.getPlayer1().getBullets()).toBe(0);
     });
 
     it('adds a bullet after reloading', () => {
-        expect(gameEngine.player1Bullets).toBe(1);
+        expect(gameEngine.getPlayer1().getBullets()).toBe(1);
 
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
 
-        expect(gameEngine.player1Bullets).toBe(2);
+        expect(gameEngine.getPlayer1().getBullets()).toBe(2);
     });
 
     it("doesn't add a bullet after being shot", () => {
-        expect(gameEngine.player1Bullets).toBe(1);
+        expect(gameEngine.getPlayer1().getBullets()).toBe(1);
 
-        gameEngine.processRound(Events.RELOAD, Events.SHOOT);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.SHOOT);
 
-        expect(gameEngine.player1Bullets).toBe(1);
+        expect(gameEngine.getPlayer1().getBullets()).toBe(1);
     });
 
     it('disables reloading after reaching 6 bullets', () => {
-        expect(gameEngine.player1CanReload).toBeTruthy();
+        expect(gameEngine.getPlayer1().canReload()).toBeTruthy();
 
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
 
-        expect(gameEngine.player1CanReload).toBeFalsy();
+        expect(gameEngine.getPlayer1().canReload()).toBeFalsy();
     });
 
     it('enables firing after reloading a bullet', () => {
-        gameEngine.processRound(Events.SHOOT, Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.SHOOT, GameEngine.Events.BLOCK);
 
-        expect(gameEngine.player1CanShoot).toBeFalsy();
+        expect(gameEngine.getPlayer1().canShoot()).toBeFalsy();
 
-        gameEngine.processRound(Events.RELOAD, Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.RELOAD, GameEngine.Events.BLOCK);
 
-        expect(gameEngine.player1CanShoot).toBeTruthy()
+        expect(gameEngine.getPlayer1().canShoot()).toBeTruthy()
     });
 
     it('disables blocking after having unsuccessfully blocked twice in a row', () => {
-        expect(gameEngine.player1CanBlock).toBeTruthy();
+        expect(gameEngine.getPlayer1().canBlock()).toBeTruthy();
 
-        gameEngine.processRound(Events.BLOCK, Events.RELOAD);
-        gameEngine.processRound(Events.BLOCK, Events.RELOAD);
+        gameEngine.processRound(GameEngine.Events.BLOCK, GameEngine.Events.RELOAD);
+        gameEngine.processRound(GameEngine.Events.BLOCK, GameEngine.Events.RELOAD);
 
-        expect(gameEngine.player1CanBlock).toBeFalsy();
+        expect(gameEngine.getPlayer1().canBlock()).toBeFalsy();
     });
 
     it('enables blocking after having not used block for a turn', () => {
-        expect(gameEngine.player1CanBlock).toBeTruthy();
+        expect(gameEngine.getPlayer1().canBlock()).toBeTruthy();
 
-        gameEngine.processRound(Events.BLOCK, Events.RELOAD);
-        gameEngine.processRound(Events.BLOCK, Events.RELOAD);
-        gameEngine.processRound(Events.SHOOT, Events.BLOCK);
+        gameEngine.processRound(GameEngine.Events.BLOCK, GameEngine.Events.RELOAD);
+        gameEngine.processRound(GameEngine.Events.BLOCK, GameEngine.Events.RELOAD);
+        gameEngine.processRound(GameEngine.Events.SHOOT, GameEngine.Events.BLOCK);
 
-        expect(gameEngine.player1CanBlock).toBeTruthy();
+        expect(gameEngine.getPlayer1().canBlock()).toBeTruthy();
     });
 });

@@ -1,23 +1,25 @@
-class Lobby {
-    constructor(id) {
-        this._id = id;
+import WebSocket from 'ws';
 
-        this._player1 = null;
-        this._player2 = null;
+export default class Lobby {
+    private id: string;
+
+    private player1: WebSocket;
+    private player2: WebSocket;
+
+    constructor(id: string) {
+        this.id = id;
     }
 
-    connectPlayer(connection) {
+    connectPlayer(connection: WebSocket) {
         // If no player has been designated to player 1, the connecting player must be player 1
-        if (this._player1 == null) {
-            this._player1 = connection;
+        if (this.player1 == null) {
+            this.player1 = connection;
 
-            connection.send(`new lobby ${this._id}`);
+            connection.send(`new lobby ${this.id}`);
         }
     }
 
-    get id() {
-        return this._id;
+    getID() {
+        return this.id;
     }
 }
-
-module.exports = Lobby;
