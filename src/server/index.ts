@@ -17,8 +17,8 @@ console.log("WebSocket Server started at port 8080");
 // List of Lobby instances
 const server = new Server();
 
-wsServer.on('connection', (connection) => {
-    connection.on('message', (message) => {
+wsServer.on('connection', connection => {
+    connection.on('message', message => {
         if (message === "create lobby") {
             // Generate a number between 0 and ZZZZ to act as the lobby ID
             let lobbyID = Bases.toBase(Math.floor(Math.random() * 1679616), 36).toUpperCase();

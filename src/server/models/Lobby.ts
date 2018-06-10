@@ -117,8 +117,8 @@ export default class Lobby {
      */
     private beginRound() {
         this.sendToPlayers(
-               '1 ' + this._players[0].toString()
-            + ' 2 ' + this._players[1].toString()
+               '1 ' + this._game.getPlayer1().toString()
+            + ' 2 ' + this._game.getPlayer2().toString()
         );
     }
 
@@ -129,5 +129,13 @@ export default class Lobby {
 
     getID() {
         return this._id;
+    }
+
+    /**
+     * Return a duplicate list of players in this lobby instance
+     * @returns {WebSocket[]}
+     */
+    getPlayers(): WebSocket[] {
+        return this._players.slice();
     }
 }

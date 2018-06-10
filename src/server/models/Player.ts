@@ -5,7 +5,9 @@ export default class Player {
     private _points: number;
     private _unsuccessfulBlocks: number;
     private _choice: Events;
+
     private readonly _MAX_BULLETS = 6;
+    private readonly _MAX_UNSUCCESSFUL_BLOCKS = 2;
 
     constructor() {
         this._bullets = 1;
@@ -30,7 +32,7 @@ export default class Player {
     }
 
     canBlock(): boolean {
-        if (this._unsuccessfulBlocks === 2) {
+        if (this._unsuccessfulBlocks === this._MAX_UNSUCCESSFUL_BLOCKS) {
             this._unsuccessfulBlocks = 0;
 
             return false;
