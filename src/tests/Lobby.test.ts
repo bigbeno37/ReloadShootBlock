@@ -17,6 +17,7 @@ describe('Lobby', () => {
         player2.send = jest.fn();
         player2.on = jest.fn();
 
+        jest.useFakeTimers();
     });
 
     it('assigns the lobby creator to the first array index', () => {
@@ -61,5 +62,41 @@ describe('Lobby', () => {
         expect(player1.send).toHaveBeenLastCalledWith(
             '1 0 1 reload shoot block 2 0 1 reload shoot block'
         );
+    });
+
+    it('sends round details to players after a round has completed', () => {
+        lobby.connectPlayer(player1);
+        lobby.connectPlayer(player2);
+
+        lobby.choiceHandler("shoot", player1);
+        lobby.choiceHandler("reload", player2);
+
+        expect(player1.send).toHaveBeenLastCalledWith('player 1 won shoot reload');
+    });
+
+    it('begins a new round after one has been completed', () => {
+        lobby.connectPlayer(player1);
+        lobby.connectPlayer(player2);
+
+        lobby.choiceHandler('shoot', player1);
+        lobby.choiceHandler('reload', player2);
+
+        jest.runAllTimers();
+
+        expect(player1.send).toHaveBeenLastCalledWith('1 1 0 reload block 2 0 2 reload shoot block');
+    });
+
+    it('tells players that a lobby has concluded', () => {
+        lobby.connectPlayer(player1);
+        lobby.connectPlayer(player2);
+
+        lobby.getGameEngine().getPlayer1().setPoints(4);
+
+        lobby.choiceHandler('shoot', player1);
+        lobby.choiceHandler('reload', player2);
+
+        jest.runAllTimers();
+
+        expect(player1.send).toHaveBeenLastCalledWith('end player 1');
     });
 });

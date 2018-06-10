@@ -1,24 +1,26 @@
 import WebSocket from 'ws';
 import GameEngine from "./GameEngine";
 import Events from "../enums/Events";
-import Player from "./Player";
 import GameEngineImpl from "../GameEngineImpl";
 import Server from "./Server";
 
 export default class Lobby {
     private readonly _id: string;
-    private readonly _FIRST_TO = 5;
+    private readonly _FIRST_TO: number;
+    private readonly _ROUND_DELAY: number;
 
     private readonly _players: WebSocket[];
 
-    private _game: GameEngine;
+    private readonly _game: GameEngine;
     private _server: Server;
 
-    constructor(id: string, server: Server) {
+    constructor(id: string, server: Server, firstTo: number = 5, roundDelay: number = 5000) {
         this._id = id;
         this._players = [];
         this._game = new GameEngineImpl();
         this._server = server;
+        this._ROUND_DELAY = roundDelay;
+        this._FIRST_TO = firstTo;
     }
 
     connectPlayer(connection: WebSocket) {
@@ -49,7 +51,7 @@ export default class Lobby {
         });
     }
 
-    private choiceHandler(message: WebSocket.Data, player: WebSocket) {
+    public choiceHandler(message: WebSocket.Data, player: WebSocket) {
         let choice: Events | null = null;
 
         switch (message) {
@@ -79,8 +81,6 @@ export default class Lobby {
     private checkForAllChoicesMade() {
         // If both players have made their choice, process the results
         if (this._game.getPlayer1().getChoice() && this._game.getPlayer2().getChoice()) {
-            // let result = this._game.processRound();
-
             // Informs players of the result of the round in the format
             // <RoundState> <Player 1 Event> <Player 2 Event>
             // i.e. draw shoot block
@@ -98,7 +98,7 @@ export default class Lobby {
                 } else {
                     this.beginRound();
                 }
-            }, 5000);
+            }, this._ROUND_DELAY);
         }
     }
 
@@ -137,5 +137,9 @@ export default class Lobby {
      */
     getPlayers(): WebSocket[] {
         return this._players.slice();
+    }
+
+    getGameEngine() {
+        return this._game;
     }
 }

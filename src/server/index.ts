@@ -5,16 +5,29 @@ import Server from './models/Server';
 
 const app = express();
 
-app.use(express.static(__dirname + '/../../client/'));
-
-app.get('/', (req, res) => res.sendFile('index.html', {"root": __dirname + '/../../client/'}));
-
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/../client/');
 
 const wsServer = new WebSocket.Server({ port: 8080 });
 console.log("WebSocket Server started at port 8080");
+app.listen(3000, () => console.log('Example app listening on port 3000!'));
 
-// List of Lobby instances
+app.use(express.static(__dirname + '/../client/'));
+
+app.get('/:lobbyID', (req, res) => {
+    console.log("hi");
+    if (server.findLobbyWithID(req.params.lobbyID)) {
+        res.render('index', {connectingTo: req.params.lobbyID});
+    } else {
+        res.send('No lobby found! Maybe your mate\'s an idiot and misspelled four charactres');
+    }
+});
+
+app.get('/', (req, res) => res.render('index'));
+
+
+
+// The actual game engine
 const server = new Server();
 
 wsServer.on('connection', connection => {

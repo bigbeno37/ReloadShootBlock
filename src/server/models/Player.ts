@@ -23,6 +23,10 @@ export default class Player {
         return this._points;
     }
 
+    setPoints(points: number) {
+        this._points = points;
+    }
+
     canShoot(): boolean {
         return this._bullets > 0;
     }
