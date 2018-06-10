@@ -1,7 +1,7 @@
 enum Events {
-    RELOAD,
-    SHOOT,
-    BLOCK
+    RELOAD = "reload",
+    SHOOT = "shoot",
+    BLOCK = "block"
 }
 
 export default Events;

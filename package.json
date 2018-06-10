@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "run": "tsc && npm run compile",
-    "compile": "tsc --watch & node out/server/index.js"
+    "compile": "tsc --watch & node out/index.js"
   },
   "repository": {
     "type": "git",

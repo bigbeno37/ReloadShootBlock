@@ -9,7 +9,7 @@ export default class Server {
     }
 
     createLobby(id: string) {
-        this.lobbies.push(new Lobby(id));
+        this.lobbies.push(new Lobby(id, this));
     }
 
     connectPlayerToLobby(connection: WebSocket, id: string) {
@@ -27,5 +27,17 @@ export default class Server {
         }
 
         return null;
+    }
+
+    destroyLobby(id: string) {
+        let lobby = this.findLobbyWithID(id);
+
+        // If the lobby exists, remove it from lobbies and set the instance to
+        // be null
+        if (lobby) {
+            this.lobbies.splice(this.lobbies.indexOf(lobby), 1);
+
+            lobby = null;
+        }
     }
 }

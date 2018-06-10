@@ -1,5 +1,5 @@
 import Player from "./Player";
-import DrawReason from './../enums/DrawReason';
+import RoundResult from '../enums/RoundResult';
 
 export default interface GameEngine {
     /**
@@ -18,7 +18,7 @@ export default interface GameEngine {
      * Based on Player.getChoice() for both players, calculate what actions are to be
      * taken (e.g. if a player should lose a bullet, win a point, etc.) and return the
      * winning player. If the round is a draw, return the reason.
-     * @returns {Player | DrawReason}
+     * @returns {Player | RoundResult}
      */
-    processRound(): Player | DrawReason;
+    processRound(): RoundResult;
 }

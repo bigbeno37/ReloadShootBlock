@@ -5,6 +5,7 @@ export default class Player {
     private _points: number;
     private _unsuccessfulBlocks: number;
     private _choice: Events;
+    private readonly _MAX_BULLETS = 6;
 
     constructor() {
         this._bullets = 1;
@@ -25,7 +26,7 @@ export default class Player {
     }
 
     canReload(): boolean {
-        return this._bullets < 6;
+        return this._bullets < this._MAX_BULLETS;
     }
 
     canBlock(): boolean {
@@ -64,5 +65,12 @@ export default class Player {
 
     addUnsuccessfulBlock() {
         this._unsuccessfulBlocks++;
+    }
+
+    toString(): string {
+        return this._points + ' ' + this._bullets
+            + (this.canReload() ? ' reload' : '')
+            + (this.canShoot() ? ' shoot' : '')
+            + (this.canBlock() ? ' block' : '');
     }
 }
