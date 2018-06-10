@@ -1,4 +1,4 @@
-import Events from "./Events";
+import Events from "../enums/Events";
 
 export default class Player {
     private _bullets: number;
@@ -38,31 +38,31 @@ export default class Player {
         return true;
     }
 
-    shoot() {
-        this._bullets--;
-    }
-
-    reload() {
-        this._bullets++;
-    }
-
-    wonRound() {
-        this._points++;
-    }
-
-    unsuccessfulBlock() {
-        this._unsuccessfulBlocks++;
-    }
-
-    resetBlocks() {
-        this._unsuccessfulBlocks = 0;
-    }
-
     setChoice(choice: Events) {
         this._choice = choice;
     }
 
     getChoice() {
         return this._choice;
+    }
+
+    removeBullet() {
+        this._bullets--;
+    }
+
+    addPoint() {
+        this._points++;
+    }
+
+    addBullet() {
+        this._bullets++;
+    }
+
+    setUnsuccessfulBlocks(blocks: number) {
+        this._unsuccessfulBlocks = blocks;
+    }
+
+    addUnsuccessfulBlock() {
+        this._unsuccessfulBlocks++;
     }
 }

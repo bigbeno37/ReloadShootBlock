@@ -1,78 +1,24 @@
 import Player from "./Player";
-import Events from './Events';
+import DrawReason from './../enums/DrawReason';
 
-export default class GameEngine {
-    private readonly _player1: Player;
-    private readonly _player2: Player;
+export default interface GameEngine {
+    /**
+     * Returns player 1
+     * @returns {Player}
+     */
+    getPlayer1(): Player;
 
-    constructor() {
-        this._player1 = new Player();
-        this._player2 = new Player();
-    }
+    /**
+     * Returns player 2
+     * @returns {Player}
+     */
+    getPlayer2(): Player;
 
-    getPlayer1(): Player {
-        return this._player1;
-    }
-
-    getPlayer2(): Player {
-        return this._player2;
-    }
-
-    processRound(player1Event: Events, player2Event: Events): Player | null{
-        // Determine if bullets need to be removed and if so, remove the bullets
-        if (player1Event === Events.SHOOT) {
-            this._player1.shoot();
-        }
-
-        if (player2Event === Events.SHOOT) {
-            this._player2.shoot();
-        }
-
-        // Determine if bullets need to be added
-        // This can only happen in the case that they do not die in the same round
-        // i.e. a player does not shoot while they reload
-        if (player1Event === Events.RELOAD && player2Event !== Events.SHOOT) {
-            this._player1.reload();
-        }
-
-        if (player2Event === Events.RELOAD && player1Event !== Events.SHOOT) {
-            this._player2.reload();
-        }
-
-        // Determine if the player has unsuccessfully blocked an attack
-        // i.e. blocked when there was nothing to block
-        if (player1Event === Events.BLOCK && player2Event !== Events.SHOOT) {
-            this._player1.unsuccessfulBlock();
-        }
-
-        if (player2Event === Events.BLOCK && player1Event !== Events.SHOOT) {
-            this._player2.unsuccessfulBlock();
-        }
-
-        if (player1Event !== Events.BLOCK) {
-            this._player1.resetBlocks();
-        }
-
-        if (player2Event !== Events.BLOCK) {
-            this._player2.resetBlocks()
-        }
-
-        // Determine if points are to be incremented
-        // i.e. a player shot and the other tried to reload
-        if (player1Event === Events.SHOOT && player2Event === Events.RELOAD) {
-            this._player1.wonRound();
-
-            return this._player1;
-        }
-
-        if (player2Event === Events.SHOOT && player1Event === Events.RELOAD) {
-            this._player2.wonRound();
-
-            return this._player2;
-        }
-
-        return null;
-    }
-
-
+    /**
+     * Based on Player.getChoice() for both players, calculate what actions are to be
+     * taken (e.g. if a player should lose a bullet, win a point, etc.) and return the
+     * winning player. If the round is a draw, return the reason.
+     * @returns {Player | DrawReason}
+     */
+    processRound(): Player | DrawReason;
 }

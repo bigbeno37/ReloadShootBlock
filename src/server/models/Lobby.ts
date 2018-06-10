@@ -1,35 +1,26 @@
 import WebSocket from 'ws';
 import GameEngine from "./GameEngine";
-import Events from "./Events";
+import Events from "../enums/Events";
 import Player from "./Player";
-
-enum State {
-    WAITING_FOR_PLAYERS,
-    WAITING_FOR_CHOICES,
-    GAME_FINISHED
-}
+import GameEngineImpl from "../GameEngineImpl";
 
 export default class Lobby {
-    public static readonly State = State;
-    private _lobbyStatus: State;
-
     private readonly _id: string;
 
-    private _player1: WebSocket;
-    private _player2: WebSocket;
+    private _players: WebSocket[];
 
     private _game: GameEngine;
 
     constructor(id: string) {
         this._id = id;
-        this._lobbyStatus = State.WAITING_FOR_PLAYERS;
-        this._game = new GameEngine();
+        this._players = [];
+        this._game = new GameEngineImpl();
     }
 
     connectPlayer(connection: WebSocket) {
         // If no player has been designated to player 1, the connecting player must be player 1
-        if (this._player1 == null) {
-            this._player1 = connection;
+        if (this._players.length === 0) {
+            this._players.push(connection);
 
             connection.send(`lobby 1 ${this._id}`);
         } else {
