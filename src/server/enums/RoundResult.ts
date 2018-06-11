@@ -46,4 +46,12 @@ export default class RoundResult {
     toString(): string {
         return `${this._result} ${this._player1Choice} ${this._player2Choice}`;
     }
+
+    toJSON() {
+        return {
+            player1: this._player1Choice,
+            player2: this._player2Choice,
+            result: this._result
+        }
+    }
 }

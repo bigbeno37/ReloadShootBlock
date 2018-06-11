@@ -36,7 +36,7 @@
     "@types/bases": "^0.2.2",
     "@types/express": "^4.16.0",
     "@types/ws": "^5.1.2",
-    "typescript": "^2.9.1",
+    "typescript": "^2.9.1"
   },
   "dependencies": {
     "bases": "^0.2.1",

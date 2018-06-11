@@ -13,7 +13,7 @@
     <title>Reload, Shoot, Block!</title>
 </head>
 <body>
-    <% if (connectingTo) {%>
+    <% if (typeof connectingTo !== 'undefined') {%>
         <input type="text" id="connectingTo" value="<%= connectingTo %>" hidden>
     <% } %>
 
@@ -26,7 +26,7 @@
 
         <div class="row createLobby">
             <div class="col text-center">
-                <a href="#" class="btn btn-success" onclick="createGame()">Create game</a>
+                <a href="#" class="btn btn-success" onclick="createLobby()">Create game</a>
             </div>
         </div>
 
@@ -42,6 +42,41 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div class="game">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center"><span id="player1Score"></span>-<span id="player2Score"></span></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-center">Bullets: <span id="bullets"></span></h2>
+                </div>
+            </div>
+
+            <div class="row text-center buttons">
+                <div class="col"><a href="#" id="reloadBtn" class="btn btn-danger" onclick="sendMove('reload')">Reload</a></div>
+                <div class="col"><a href="#" id="shootBtn" class="btn btn-success" onclick="sendMove('shoot')">Shoot</a></div>
+                <div class="col"><a href="#" id="blockBtn" class="btn btn-primary" onclick="sendMove('block')">Block</a></div>
+            </div>
+
+            <div class="row waiting">
+                <div class="col">
+                    <h3 class="text-center"><em>Waiting for opponent's move...</em></h3>
+                </div>
+            </div>
+
+            <div class="row results">
+                <div class="col">
+                    <h3 class="text-center" id="result"></h3>
+                    <h4 class="text-center"><em>
+                            (Player 1 used <span id="player1Choice"></span>,
+                            Player 2 used <span id="player2Choice"></span>)
+                    </em></h4>
+                </div>
             </div>
         </div>
     </div>

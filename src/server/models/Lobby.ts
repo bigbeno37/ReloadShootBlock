@@ -24,15 +24,15 @@ export default class Lobby {
     }
 
     connectPlayer(connection: WebSocket) {
-        // If no player has been designated to player 1, the connecting player must be player 1
-        if (this._players.length === 0) {
-            this._players.push(connection);
+        this._players.push(connection);
 
-            connection.send(`lobby 1 ${this._id}`);
+        if (this._players.length === 1) {
+            connection.send(JSON.stringify({
+                event: 'newlobby',
+                lobbyID: this._id
+            }));
         } else {
-            this._players.push(connection);
-
-            connection.send('lobby 2');
+            console.log(`Beginning lobby ${this._id}`);
 
             this.beginGame();
         }
@@ -84,7 +84,10 @@ export default class Lobby {
             // Informs players of the result of the round in the format
             // <RoundState> <Player 1 Event> <Player 2 Event>
             // i.e. draw shoot block
-            this.sendToPlayers(this._game.processRound().toString());
+            this.sendToPlayers(JSON.stringify({
+                event: 'roundover',
+                result: this._game.processRound()
+            }));
 
             // Wait five seconds until the next round starts
             // (allows players time to read what happened in the round)
@@ -116,10 +119,11 @@ export default class Lobby {
      * points, etc.) to each player connected to the lobby
      */
     private beginRound() {
-        this.sendToPlayers(
-               '1 ' + this._game.getPlayer1().toString()
-            + ' 2 ' + this._game.getPlayer2().toString()
-        );
+        this.sendToPlayers(JSON.stringify({
+            event: 'newround',
+            player1: this._game.getPlayer1(),
+            player2: this._game.getPlayer2()
+        }));
     }
 
     private sendToPlayers(message: string) {

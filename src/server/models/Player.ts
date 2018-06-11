@@ -79,4 +79,14 @@ export default class Player {
             + (this.canShoot() ? ' shoot' : '')
             + (this.canBlock() ? ' block' : '');
     }
+
+    toJSON() {
+        return {
+            points: this._points,
+            bullets: this._bullets,
+            canReload: this.canReload(),
+            canShoot: this.canShoot(),
+            canBlock: this.canBlock()
+        }
+    }
 }

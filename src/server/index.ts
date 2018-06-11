@@ -15,7 +15,12 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'));
 app.use(express.static(__dirname + '/../client/'));
 
 app.get('/:lobbyID', (req, res) => {
-    console.log("hi");
+    if (req.params.lobbyID === '#') {
+        return;
+    }
+
+    console.log("Invited player is trying to connect!");
+
     if (server.findLobbyWithID(req.params.lobbyID)) {
         res.render('index', {connectingTo: req.params.lobbyID});
     } else {
@@ -36,11 +41,20 @@ wsServer.on('connection', connection => {
             // Generate a number between 0 and ZZZZ to act as the lobby ID
             let lobbyID = Bases.toBase(Math.floor(Math.random() * 1679616), 36).toUpperCase();
 
-            server.createLobby(lobbyID);
+            // Make sure that the lobby ID is padded until reaching 1000
+            // (i.e. 1EA should not appear; 01EA is permitted)
+            let lobbyIDFormatted = '0000'.substring(lobbyID.length) + lobbyID;
 
-            server.connectPlayerToLobby(connection, lobbyID);
+            server.createLobby(lobbyIDFormatted);
+
+            server.connectPlayerToLobby(connection, lobbyIDFormatted);
 
             console.log(`Lobby ID ${lobbyID} created!`);
+
+        // If the message received contains 'join'...
+        // (will be in the format join <lobbyID>)
+        } else if (message.toString().indexOf('join') !== -1) {
+            server.connectPlayerToLobby(connection, message.toString().split(' ')[1]);
         }
 
         console.log(`Received ${message}`);

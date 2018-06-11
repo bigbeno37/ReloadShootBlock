@@ -42,26 +42,16 @@ describe('Lobby', () => {
 
         lobby.connectPlayer(player1);
 
-        expect(player1.send).toHaveBeenCalledWith('lobby 1 A');
-    });
-
-    it('send lobby 2 to the second player connecting to the lobby', () => {
-        lobby.connectPlayer(player1);
-
-        expect(player2.send).not.toHaveBeenCalled();
-
-        lobby.connectPlayer(player2);
-
-        expect(player2.send).toHaveBeenCalledWith('lobby 2');
+        expect(player1.send).toHaveBeenCalledWith('lobby A');
     });
 
     it('sends details to players after a round has begun', () => {
         lobby.connectPlayer(player1);
         lobby.connectPlayer(player2);
 
-        expect(player1.send).toHaveBeenLastCalledWith(
-            '1 0 1 reload shoot block 2 0 1 reload shoot block'
-        );
+        let parameter = 'round ' + JSON.stringify({player1: lobby.getGameEngine().getPlayer1(), player2: lobby.getGameEngine().getPlayer2()});
+
+        expect(player1.send).toHaveBeenLastCalledWith(parameter);
     });
 
     it('sends round details to players after a round has completed', () => {
@@ -83,7 +73,9 @@ describe('Lobby', () => {
 
         jest.runAllTimers();
 
-        expect(player1.send).toHaveBeenLastCalledWith('1 1 0 reload block 2 0 2 reload shoot block');
+        let parameter = 'round ' + JSON.stringify({player1: lobby.getGameEngine().getPlayer1(), player2: lobby.getGameEngine().getPlayer2()});
+
+        expect(player1.send).toHaveBeenLastCalledWith(parameter);
     });
 
     it('tells players that a lobby has concluded', () => {
