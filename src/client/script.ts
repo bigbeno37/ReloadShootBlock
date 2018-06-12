@@ -82,7 +82,7 @@ $(function() {
     new ClipboardJS('.copyLobbyCode');
 
     // Connect to the WebSocket server
-    server = new WebSocket(`ws${!$("#secure").val() ? 's' : ''}://localhost:${$("#port").val()}/ws`);
+    server = new WebSocket(location.origin.replace(/^http/, 'ws'));
 
     server.onerror = () => {
         alert("Unable to connect to WebSocket server!");
@@ -93,7 +93,7 @@ $(function() {
 
         // If this is the player that is connecting to a specified lobby, then skip the main page and go straight to the
         // specified lobby (reaching this point means the lobby exists and the lobbyCode found is valid)
-        if ($("#connectingTo") !== null) {
+        if ($("#connectingTo").length !== 0) {
             player1 = false;
 
             joinLobby(<string>$("#connectingTo").val());

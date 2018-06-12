@@ -1,38 +1,24 @@
 import Bases from 'bases';
-import WebSocket from 'ws';
 import Server from './models/Server';
+import WebSocket from 'ws';
 
-const enableWs = require('express-ws');
+const PORT = process.env.PORT || 3000;
+
 const express = require('express');
 const app = express();
-enableWs(app);
-
+const expressWs = require('express-ws')(app);
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/../../../client/');
 
 app.use(express.static(__dirname + '/../../../client/'));
 
-app.get('/:lobbyID', (req: any, res: any) => {
-    if (req.params.lobbyID === '#') {
-        return;
-    }
-
-    console.log("Invited player is trying to connect!");
-
-    if (server.findLobbyWithID(req.params.lobbyID)) {
-        res.render('index', {port: process.env.PORT || 3000, secure: !!process.env.PORT, connectingTo: req.params.lobbyID});
-    } else {
-        res.send('No lobby found! Maybe your mate\'s an idiot and misspelled four charactres');
-    }
-});
-
 // The actual game engine
 const server = new Server();
 
-app.get('/', (req: any, res: any) => res.render('index', {port: process.env.PORT || 3000, secure: !!process.env.PORT}));
+app.get('/', (req: any, res: any) => res.render('index'));
 
-app.ws('/ws', (connection: WebSocket, req: any) => {
+app.ws('/', (connection: WebSocket, req: any) => {
     connection.on('message', message => {
         if (message === "create lobby") {
             // Generate a number between 0 and ZZZZ to act as the lobby ID
@@ -58,6 +44,20 @@ app.ws('/ws', (connection: WebSocket, req: any) => {
     });
 });
 
-app.listen(process.env.PORT || 3000);
+app.get('/:lobbyID', (req: any, res: any) => {
+    if (req.params.lobbyID === '#') {
+        return;
+    }
 
-console.log(`Server started at port ${process.env.PORT || 3000}`);
+    console.log("Invited player is trying to connect!");
+
+    if (server.findLobbyWithID(req.params.lobbyID)) {
+        res.render('index', {connectingTo: req.params.lobbyID});
+    } else {
+        res.send('No lobby found! Maybe your mate\'s an idiot and misspelled four charactres');
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server started at port ${PORT}`);
+});
