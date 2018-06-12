@@ -55,8 +55,13 @@ export default class GameEngineImpl implements GameEngine {
 
         switch (this._player2.getChoice()) {
             case Events.RELOAD:
-            case Events.SHOOT:
                 this._player2.addBullet();
+                this._player2.setUnsuccessfulBlocks(0);
+
+                break;
+            case Events.SHOOT:
+                this._player2.removeBullet();
+                this._player2.addPoint();
                 this._player2.setUnsuccessfulBlocks(0);
 
                 break;

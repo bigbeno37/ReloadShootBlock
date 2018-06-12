@@ -10,7 +10,7 @@ let server: WebSocket, player1 = false;
 function showLobby(lobbyID: string) {
     $(".createLobby").hide();
 
-    $("#lobbyID").val(lobbyID);
+    $("#lobbyID").val(location.origin.replace(/^(http|https):\/\//, '') + '/' + lobbyID);
     $(".lobby").show();
 }
 
