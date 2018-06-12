@@ -82,7 +82,7 @@ $(function() {
     new ClipboardJS('.copyLobbyCode');
 
     // Connect to the WebSocket server
-    server = new WebSocket("ws://localhost:8080");
+    server = new WebSocket(`ws${!$("#secure").val() ? 's' : ''}://localhost:${$("#port").val()}/ws`);
 
     server.onerror = () => {
         alert("Unable to connect to WebSocket server!");
