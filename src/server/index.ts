@@ -6,13 +6,13 @@ import Server from './models/Server';
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/../client/');
+app.set('views', __dirname + '/../../client/');
 
 const wsServer = new WebSocket.Server({ port: 8080 });
 console.log("WebSocket Server started at port 8080");
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
 
-app.use(express.static(__dirname + '/../client/'));
+app.use(express.static(__dirname + '/../../client/'));
 
 app.get('/:lobbyID', (req, res) => {
     if (req.params.lobbyID === '#') {
