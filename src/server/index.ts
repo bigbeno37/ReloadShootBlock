@@ -10,7 +10,7 @@ app.set('views', __dirname + '/../../../client/');
 
 const wsServer = new WebSocket.Server({ port: 8080 });
 console.log("WebSocket Server started at port 8080");
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(process.env.PORT || 3000, () => console.log(`App listening for HTTP requests at port ${process.env.port || 3000}`));
 
 app.use(express.static(__dirname + '/../../../client/'));
 
