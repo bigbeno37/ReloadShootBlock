@@ -3,6 +3,10 @@ import GameEngine from "./GameEngine";
 import Events from "../enums/Events";
 import GameEngineImpl from "../GameEngineImpl";
 import Server from "./Server";
+import NewRoundEvent from "../../shared/events/NewRoundEvent";
+import BeginGameEvent from "../../shared/events/BeginGameEvent";
+import RoundOverEvent from "../../shared/events/RoundOverEvent";
+import NewLobbyEvent from "../../shared/events/NewLobbyEvent";
 
 export default class Lobby {
     private readonly _id: string;
@@ -27,10 +31,12 @@ export default class Lobby {
         this._players.push(connection);
 
         if (this._players.length === 1) {
-            connection.send(JSON.stringify({
-                event: 'newlobby',
+            let event: NewLobbyEvent = {
+                event: 'new lobby',
                 lobbyID: this._id
-            }));
+            };
+
+            connection.send(JSON.stringify(event));
         } else {
             console.log(`Beginning lobby ${this._id}`);
 
@@ -40,7 +46,13 @@ export default class Lobby {
 
     private beginGame() {
         // Both players have connected to the lobby
-        this.beginRound();
+        let event: BeginGameEvent = {
+            event: 'begin game',
+            player1: this._game.getPlayer1().toJSON(),
+            player2: this._game.getPlayer2().toJSON()
+        };
+
+        this.sendToPlayers(JSON.stringify(event));
 
         this._players[0].on('message', (message) => {
             this.choiceHandler(message, this._players[0]);
@@ -49,6 +61,18 @@ export default class Lobby {
         this._players[1].on('message', (message) => {
             this.choiceHandler(message, this._players[1]);
         });
+    }
+
+    /**
+     * Sends details of the game's state (i.e. player details such as number of bullets,
+     * points, etc.) to each player connected to the lobby
+     */
+    private beginRound() {
+        let event: NewRoundEvent = {
+            event: 'new round',
+        };
+
+        this.sendToPlayers(JSON.stringify(event));
     }
 
     public choiceHandler(message: WebSocket.Data, player: WebSocket) {
@@ -84,10 +108,14 @@ export default class Lobby {
             // Informs players of the result of the round in the format
             // <RoundState> <Player 1 Event> <Player 2 Event>
             // i.e. draw shoot block
-            this.sendToPlayers(JSON.stringify({
-                event: 'roundover',
-                result: this._game.processRound()
-            }));
+            let event: RoundOverEvent = {
+                event: 'round over',
+                results: this._game.processRound(),
+                player1: this._game.getPlayer1().toJSON(),
+                player2: this._game.getPlayer2().toJSON()
+            };
+
+            this.sendToPlayers(JSON.stringify(event));
 
             // Wait five seconds until the next round starts
             // (allows players time to read what happened in the round)
@@ -112,18 +140,6 @@ export default class Lobby {
         this.sendToPlayers('end ' + victor);
 
         this._server.destroyLobby(this._id);
-    }
-
-    /**
-     * Sends details of the game's state (i.e. player details such as number of bullets,
-     * points, etc.) to each player connected to the lobby
-     */
-    private beginRound() {
-        this.sendToPlayers(JSON.stringify({
-            event: 'newround',
-            player1: this._game.getPlayer1(),
-            player2: this._game.getPlayer2()
-        }));
     }
 
     private sendToPlayers(message: string) {

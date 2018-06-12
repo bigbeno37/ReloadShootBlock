@@ -8,11 +8,11 @@
   },
   "scripts": {
     "test": "jest",
-    "run": "node out/server/index.js",
-    "compile-and-run": "npm run compile && npm-watch & npm run watch",
+    "run": "node out/server/server/index.js",
+    "compile-and-run": "npm run compile && npm run browserify && npm run watch",
     "compile": "tsc -p servertsconfig.json && tsc -p clienttsconfig.json",
     "browserify": "browserify out/client/script.js -t windowify -d | uglifyjs -cm -o client/script.js --source-map 'content=inline'",
-    "watch": "tsc -p servertsconfig.json --watch & tsc -p clienttsconfig.json --watch & npm run run"
+    "watch": "npm-watch & tsc -p servertsconfig.json --watch & tsc -p clienttsconfig.json --watch & npm run run"
   },
   "repository": {
     "type": "git",

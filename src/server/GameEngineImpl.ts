@@ -1,7 +1,8 @@
 import Player from "./models/Player";
 import Events from './enums/Events';
 import GameEngine from './models/GameEngine';
-import RoundResult from "./enums/RoundResult";
+import RoundResult from "../shared/events/RoundResult";
+import RoundResultImpl from "./RoundResultImpl";
 
 export default class GameEngineImpl implements GameEngine {
     private readonly _player1: Player;
@@ -36,7 +37,11 @@ export default class GameEngineImpl implements GameEngine {
                 break;
         }
 
-        return new RoundResult(this._player1.getChoice(), this._player2.getChoice());
+        let roundResult = new RoundResultImpl(<Events>this._player1.getChoice(), <Events>this._player2.getChoice());
+
+        this.clearPlayerChoices();
+
+        return roundResult;
     }
 
     private reloadHandler() {
@@ -109,5 +114,10 @@ export default class GameEngineImpl implements GameEngine {
 
                 break;
         }
+    }
+
+    private clearPlayerChoices() {
+        this._player1.setChoice(null);
+        this._player2.setChoice(null)
     }
 }

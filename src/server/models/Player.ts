@@ -1,10 +1,11 @@
 import Events from "../enums/Events";
+import PlayerDetails from "../../shared/events/PlayerDetails";
 
 export default class Player {
     private _bullets: number;
     private _points: number;
     private _unsuccessfulBlocks: number;
-    private _choice: Events;
+    private _choice: Events | null;
 
     private readonly _MAX_BULLETS = 6;
     private readonly _MAX_UNSUCCESSFUL_BLOCKS = 2;
@@ -45,7 +46,7 @@ export default class Player {
         return true;
     }
 
-    setChoice(choice: Events) {
+    setChoice(choice: Events | null) {
         this._choice = choice;
     }
 
@@ -73,14 +74,7 @@ export default class Player {
         this._unsuccessfulBlocks++;
     }
 
-    toString(): string {
-        return this._points + ' ' + this._bullets
-            + (this.canReload() ? ' reload' : '')
-            + (this.canShoot() ? ' shoot' : '')
-            + (this.canBlock() ? ' block' : '');
-    }
-
-    toJSON() {
+    toJSON(): PlayerDetails {
         return {
             points: this._points,
             bullets: this._bullets,
