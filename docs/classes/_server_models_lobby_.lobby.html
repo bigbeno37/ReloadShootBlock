@@ -69,6 +69,17 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A representation of a Lobby, which is responsible for handling messages to and from this Lobby instance.
+							The event loop consists of:
+							<a href="_server_models_lobby_.lobby.html#connectplayer">connectPlayer</a> (wait for two players) -&gt; <a href="_server_models_lobby_.lobby.html#begingame">beginGame</a> (wait for messages)
+							-&gt; <a href="_server_models_lobby_.lobby.html#choicehandler">choiceHandler</a> (wait for both players to make a choice)
+						-&gt; <a href="_server_models_lobby_.lobby.html#checkforallchoicesmade">checkForAllChoicesMade</a> -&gt; <a href="_server_models_lobby_.lobby.html#beginround">beginRound</a> -&gt; <a href="_server_models_lobby_.lobby.html#choicehandler">choiceHandler</a></p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -128,7 +139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L19">server/models/Lobby.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L38">server/models/Lobby.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -159,9 +170,14 @@
 					<div class="tsd-signature tsd-kind-icon">_FIRST_<wbr>TO<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L13">server/models/Lobby.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L24">server/models/Lobby.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many points a player has to reach before the game is over</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_round_delay" class="tsd-anchor"></a>
@@ -169,9 +185,14 @@
 					<div class="tsd-signature tsd-kind-icon">_ROUND_<wbr>DELAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L14">server/models/Lobby.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L29">server/models/Lobby.ts:29</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many milliseconds to wait after a round over to initiate a new round</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_game" class="tsd-anchor"></a>
@@ -179,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">_game<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L18">server/models/Lobby.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L33">server/models/Lobby.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">_id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L12">server/models/Lobby.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L19">server/models/Lobby.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">_players<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L16">server/models/Lobby.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L31">server/models/Lobby.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -209,9 +230,14 @@
 					<div class="tsd-signature tsd-kind-icon">_server<span class="tsd-signature-symbol">:</span> <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L19">server/models/Lobby.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L38">server/models/Lobby.ts:38</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Callback to the parent server instance (calls <a href="_server_models_server_.server.html#destroylobby">Server.destroyLobby</a> at game over)</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -226,9 +252,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L47">server/models/Lobby.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L79">server/models/Lobby.ts:79</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a <a href="../interfaces/_shared_events_begingameevent_.begingameevent.html">BeginGameEvent</a> to both players and sets the <code>.on(&#39;message&#39;, ...)</code> handlers
+									to call <a href="_server_models_lobby_.lobby.html#choicehandler">choiceHandler</a></p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -243,7 +275,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L70">server/models/Lobby.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L172">server/models/Lobby.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,9 +298,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L105">server/models/Lobby.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L137">server/models/Lobby.ts:137</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks to see if both players have made a choice. If so, a <a href="../interfaces/_shared_events_roundoverevent_.roundoverevent.html">RoundOverEvent</a> is generated by calling <a href="_server_gameengineimpl_.gameengineimpl.html#processround">GameEngineImpl.processRound</a>
+										and is sent to both players. This method waits <a href="_server_models_lobby_.lobby.html#_round_delay">_ROUND_DELAY</a> milliseconds until it then either calls
+										<a href="_server_models_lobby_.lobby.html#endgame">endGame</a> if either player has reached <a href="_server_models_lobby_.lobby.html#_first_to">_FIRST_TO</a> points, otherwise it will begin a new round
+									by calling <a href="_server_models_lobby_.lobby.html#beginround">beginRound</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -283,16 +323,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L78">server/models/Lobby.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L104">server/models/Lobby.ts:104</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the choice of <code>player</code> to the corresponding <code>message</code> based on <a href="../enums/_server_enums_events_.events.html">Events</a>. Afterwards, this
+									will call <a href="_server_models_lobby_.lobby.html#checkforallchoicesmade">checkForAllChoicesMade</a></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>message: <span class="tsd-signature-type">WebSocket.Data</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Message received from <code>player</code></p>
+									</div>
 								</li>
 								<li>
 									<h5>player: <span class="tsd-signature-type">WebSocket</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The player the message was sent from</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -309,13 +361,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L30">server/models/Lobby.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L58">server/models/Lobby.ts:58</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Store the connection of a player into this Lobby as either player 1 or player 2.
+										This is determined from the size of <a href="_server_models_lobby_.lobby.html#_players">_players</a>, as each connection is automatically
+										pushed into <a href="_server_models_lobby_.lobby.html#_players">_players</a>. If this is player 1, a <a href="../interfaces/_shared_events_newlobbyevent_.newlobbyevent.html">NewLobbyEvent</a> is sent to the
+									player.</p>
+								</div>
+								<p>Once <a href="_server_models_lobby_.lobby.html#_players">_players</a>.length reaches 2, <a href="_server_models_lobby_.lobby.html#begingame">beginGame</a> is called</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>connection: <span class="tsd-signature-type">WebSocket</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The player to be added into this lobby</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -332,18 +396,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L139">server/models/Lobby.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L184">server/models/Lobby.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Destroys the current lobby instance through the Server callback</p>
+									<p>Sends each player a message declaring who won, before calling <a href="_server_models_server_.server.html#destroylobby">Server.destroyLobby</a> to remove the lobby</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>victor: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The winner of this lobby (either player 1 or player 2)</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -360,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L162">server/models/Lobby.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L207">server/models/Lobby.ts:207</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></h4>
@@ -377,7 +444,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L150">server/models/Lobby.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L199">server/models/Lobby.ts:199</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -394,14 +461,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L158">server/models/Lobby.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L203">server/models/Lobby.ts:203</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Return a duplicate list of players in this lobby instance</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
@@ -416,13 +478,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Lobby.ts#L145">server/models/Lobby.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/d04aee1/src/server/models/Lobby.ts#L194">server/models/Lobby.ts:194</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A utility method to send a message to both players connected to the lobby</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>message: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message to be sent</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

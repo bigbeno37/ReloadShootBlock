@@ -66,6 +66,19 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="reloadshootblock">ReloadShootBlock</h1>
 				<p>A nodejs based multiplayer Western spin on the classic Rock, Paper, Scissors!</p>
+				<h2 id="how-to-run">How to run</h2>
+				<p>If using npm:
+					<code>npm install</code>
+				<code>npm run start</code></p>
+				<p>If using yarn:
+					<code>yarn install</code>
+				<code>yarn start</code></p>
+				<p>It should be as simple as that. If <code>process.env.PORT</code> is defined (aka have PORT as a defined environment variable) it will use that port, otherwise the server will run on port 3000. After running one of the aboving commands, head over to <a href="http://localhost:3000">http://localhost:3000</a> and enjoy! If you encounter any issues, create a new issue and we&#39;ll work to get it resolved.</p>
+				<h1 id="how-to-contribute">How to contribute</h1>
+				<p>A good place to start is to check the docs at <a href="http://bigbeno37.github.io/ReloadShootBlock">http://bigbeno37.github.io/ReloadShootBlock</a>. The server first calls index.ts, which then loads up an express server with WebSocket and regular HTTP routes defined.</p>
+				<p>To build, use <code>npm run compile-and-run</code> or <code>yarn compile-and-run</code> which will compile all files under src, and start up the express server found in index.ts.</p>
+				<p>To run tests, use <code>npm run test</code> or <code>yarn test</code>. When submitting a PR, ALL tests must pass in order to be considered for approval, and this will be checked through <a href="https://travis-ci.org/bigbeno37/ReloadShootBlock">https://travis-ci.org/bigbeno37/ReloadShootBlock</a></p>
+				<p>If adding / editing comments, use <code>npm run docs</code> or <code>yarn docs</code> to generate a new set of docs. PR&#39;s of this nature are very likely to be approved.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
