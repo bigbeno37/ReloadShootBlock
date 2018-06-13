@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "jest --coverage",
+    "docs": "typedoc --out docs/ src/ --name \"Reload, Shoot, Block!\" --exclude **/*.test.ts --module commonjs --readme README.md --target ES5",
     "start": "node out/server/server/index.js",
     "compile-and-run": "npm run compile && npm run browserify && npm run watch",
     "compile": "tsc -p servertsconfig.json && tsc -p clienttsconfig.json",
@@ -48,6 +49,7 @@
     "ts-jest": "^22.4.6",
     "typescript": "^2.9.1",
     "uglify-js": "^3.4.0",
+    "typedoc": "^0.11.1",
     "windowify": "^0.3.0"
   },
   "dependencies": {
