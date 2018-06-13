@@ -73,14 +73,12 @@ describe('Game Engine', () => {
     it('disables reloading after reaching 6 bullets', () => {
         expect(gameEngine.getPlayer1().canReload()).toBeTruthy();
 
-        gameEngine.getPlayer1().setChoice(Events.RELOAD);
-        gameEngine.getPlayer2().setChoice(Events.BLOCK);
+        for (let i = 0; i < 5; i++) {
+            gameEngine.getPlayer1().setChoice(Events.RELOAD);
+            gameEngine.getPlayer2().setChoice(Events.BLOCK);
 
-        gameEngine.processRound();
-        gameEngine.processRound();
-        gameEngine.processRound();
-        gameEngine.processRound();
-        gameEngine.processRound();
+            gameEngine.processRound();
+        }
 
         expect(gameEngine.getPlayer1().canReload()).toBeFalsy();
     });
@@ -107,6 +105,10 @@ describe('Game Engine', () => {
         gameEngine.getPlayer2().setChoice(Events.RELOAD);
 
         gameEngine.processRound();
+
+        gameEngine.getPlayer1().setChoice(Events.BLOCK);
+        gameEngine.getPlayer2().setChoice(Events.RELOAD);
+
         gameEngine.processRound();
 
         expect(gameEngine.getPlayer1().canBlock()).toBeFalsy();

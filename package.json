@@ -1,18 +1,18 @@
 {
   "name": "reload-shoot-block",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A nodejs based multiplayer Western spin on the classic Rock, Paper, Scissors!",
   "main": "index.js",
   "watch": {
     "browserify": "out/client/*.js"
   },
   "scripts": {
-    "test": "jest",
-    "run": "node out/server/server/index.js",
+    "test": "jest --coverage",
+    "start": "node out/server/server/index.js",
     "compile-and-run": "npm run compile && npm run browserify && npm run watch",
     "compile": "tsc -p servertsconfig.json && tsc -p clienttsconfig.json",
     "browserify": "browserify out/client/script.js -t windowify -d | uglifyjs -cm -o client/script.js --source-map 'content=inline'",
-    "watch": "npm-watch & tsc -p servertsconfig.json --watch & tsc -p clienttsconfig.json --watch & npm run run"
+    "watch": "npm-watch & tsc -p servertsconfig.json --watch & tsc -p clienttsconfig.json --watch & npm run start"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/bigbeno37/ReloadShootBlock/issues"
   },
-  "homepage": "https://bigbeno37.github.com/ReloadShootBlock",
+  "homepage": "http://reload-shoot-block.herokuapp.com",
   "devDependencies": {
     "@types/bases": "^0.2.2",
     "@types/clipboard": "^2.0.0",
