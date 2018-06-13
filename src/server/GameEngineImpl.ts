@@ -4,6 +4,9 @@ import GameEngine from './models/GameEngine';
 import RoundResult from "../shared/events/RoundResult";
 import RoundResultImpl from "./RoundResultImpl";
 
+/**
+ * Contains the implementation of [[GameEngine]] and is used to process rounds in [[Lobby]]
+ */
 export default class GameEngineImpl implements GameEngine {
     private readonly _player1: Player;
     private readonly _player2: Player;
@@ -21,6 +24,11 @@ export default class GameEngineImpl implements GameEngine {
         return this._player2;
     }
 
+    /**
+     * Calls the respective handler based on what [[_player1]]'s choice was and returns a [[RoundResultImpl]] instance
+     * after clearing both player's choices through [[clearPlayerChoices]]
+     * @return {RoundResult}
+     */
     processRound(): RoundResult {
         switch (this._player1.getChoice()) {
             case Events.SHOOT:
@@ -44,6 +52,10 @@ export default class GameEngineImpl implements GameEngine {
         return roundResult;
     }
 
+    /**
+     * Given player 1 reloaded, perform a set of actions based on the choice player 2 made. Will always
+     * add a bullet and set the unsuccessful blocks of [[_player2]] to 0
+     */
     private reloadHandler() {
         // Player 1 reloaded, add bullet to player 1 and:
         // If player 2 shot, add point to player 2
@@ -72,6 +84,10 @@ export default class GameEngineImpl implements GameEngine {
         }
     }
 
+    /**
+     * Given player 1 shot, perform a set of actions based on the choice player 2 made. Will always remove a bullet
+     * from [_player1] and set the unsuccessful blocks of both [_player1] and [_player2] to 0
+     */
     private shootHandler() {
         // Player 1 shot; remove bullet from player 1 and:
         // If player 2 shot, remove bullet from player 2
@@ -95,6 +111,9 @@ export default class GameEngineImpl implements GameEngine {
         }
     }
 
+    /**
+     * Given player 1 blocked, perform a set of actions based on the choice player 2 made.
+     */
     private blockHandler() {
         // Player 1 blocked, and:
         // If player 2 shot, reset unsuccessfulBlocks on player 1
