@@ -9,9 +9,9 @@ const app = express();
 const expressWs = require('express-ws')(app);
 
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/../../../client/');
+app.set('views', __dirname + '/../../client/');
 
-app.use(express.static(__dirname + '/../../../client/'));
+app.use(express.static(__dirname + '/../../client/'));
 
 // The actual game engine
 const server = new Server();

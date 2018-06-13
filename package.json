@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest --coverage",
     "docs": "typedoc --out docs/ src/ --name \"Reload, Shoot, Block!\" --exclude **/*.test.ts --module commonjs --readme README.md --target ES5",
-    "start": "node out/server/server/index.js",
+    "start": "node out/server/index.js",
     "compile-and-run": "npm run compile && npm run browserify && npm run watch",
     "compile": "tsc -p servertsconfig.json && tsc -p clienttsconfig.json",
     "browserify": "browserify out/client/script.js -t windowify -d | uglifyjs -cm -o client/script.js --source-map 'content=inline'",
