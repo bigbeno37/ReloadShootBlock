@@ -1,5 +1,11 @@
 import Lobby from "../server/models/Lobby";
 import Server from "../server/models/Server";
+import NewLobbyEvent from "../shared/events/NewLobbyEvent";
+import BeginGameEvent from "../shared/events/BeginGameEvent";
+import RoundOverEvent from "../shared/events/RoundOverEvent";
+import RoundResultImpl from "../server/RoundResultImpl";
+import Events from "../server/enums/Events";
+import NewRoundEvent from "../shared/events/NewRoundEvent";
 
 let lobby: Lobby;
 let player1: any;
@@ -42,16 +48,25 @@ describe('Lobby', () => {
 
         lobby.connectPlayer(player1);
 
-        expect(player1.send).toHaveBeenCalledWith('lobby A');
+        let event: NewLobbyEvent = {
+            event: 'new lobby',
+            lobbyID: 'A'
+        };
+
+        expect(player1.send).toHaveBeenCalledWith(JSON.stringify(event));
     });
 
     it('sends details to players after a round has begun', () => {
         lobby.connectPlayer(player1);
         lobby.connectPlayer(player2);
 
-        let parameter = 'round ' + JSON.stringify({player1: lobby.getGameEngine().getPlayer1(), player2: lobby.getGameEngine().getPlayer2()});
+        let parameter: BeginGameEvent = {
+            event: 'begin game',
+            player1: lobby.getGameEngine().getPlayer1().toJSON(),
+            player2: lobby.getGameEngine().getPlayer2().toJSON()
+        };
 
-        expect(player1.send).toHaveBeenLastCalledWith(parameter);
+        expect(player1.send).toHaveBeenLastCalledWith(JSON.stringify(parameter));
     });
 
     it('sends round details to players after a round has completed', () => {
@@ -61,7 +76,14 @@ describe('Lobby', () => {
         lobby.choiceHandler("shoot", player1);
         lobby.choiceHandler("reload", player2);
 
-        expect(player1.send).toHaveBeenLastCalledWith('player 1 won shoot reload');
+        let event: RoundOverEvent = {
+            event: 'round over',
+            results: new RoundResultImpl(Events.SHOOT, Events.RELOAD),
+            player1: lobby.getGameEngine().getPlayer1().toJSON(),
+            player2: lobby.getGameEngine().getPlayer2().toJSON()
+        };
+
+        expect(player1.send).toHaveBeenLastCalledWith(JSON.stringify(event));
     });
 
     it('begins a new round after one has been completed', () => {
@@ -73,9 +95,11 @@ describe('Lobby', () => {
 
         jest.runAllTimers();
 
-        let parameter = 'round ' + JSON.stringify({player1: lobby.getGameEngine().getPlayer1(), player2: lobby.getGameEngine().getPlayer2()});
+        let parameter: NewRoundEvent = {
+            event: 'new round'
+        };
 
-        expect(player1.send).toHaveBeenLastCalledWith(parameter);
+        expect(player1.send).toHaveBeenLastCalledWith(JSON.stringify(parameter));
     });
 
     it('tells players that a lobby has concluded', () => {
