@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The class used by <a href="../interfaces/_server_models_gameengine_.gameengine.html">GameEngine</a> to keep track of player&#39;s details</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -126,15 +133,24 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Player<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Player<span class="tsd-signature-symbol">(</span>MAX_BULLETS<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, MAX_UNSUCCESSFUL_BLOCKS<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L11">server/models/Player.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L25">server/models/Player.ts:25</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> MAX_BULLETS: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;6</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> MAX_UNSUCCESSFUL_BLOCKS: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;2</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_server_models_player_.player.html" class="tsd-signature-type">Player</a></h4>
 						</li>
 					</ul>
@@ -145,22 +161,32 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_max_bullets" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _MAX_<wbr>BULLETS</h3>
-					<div class="tsd-signature tsd-kind-icon">_MAX_<wbr>BULLETS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">6</span><span class="tsd-signature-symbol"> =&nbsp;6</span></div>
+					<div class="tsd-signature tsd-kind-icon">_MAX_<wbr>BULLETS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L10">server/models/Player.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L20">server/models/Player.ts:20</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many bullets the player can have before not being able to add any more</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_max_unsuccessful_blocks" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _MAX_<wbr>UNSUCCESSFUL_<wbr>BLOCKS</h3>
-					<div class="tsd-signature tsd-kind-icon">_MAX_<wbr>UNSUCCESSFUL_<wbr>BLOCKS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> =&nbsp;2</span></div>
+					<div class="tsd-signature tsd-kind-icon">_MAX_<wbr>UNSUCCESSFUL_<wbr>BLOCKS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L11">server/models/Player.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L25">server/models/Player.ts:25</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many unsuccessful blocks the player can make in a row before not being able to block for a round</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_bullets" class="tsd-anchor"></a>
@@ -168,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">_bullets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L5">server/models/Player.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L8">server/models/Player.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">_choice<span class="tsd-signature-symbol">:</span> <a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L8">server/models/Player.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L15">server/models/Player.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">_points<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L6">server/models/Player.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L9">server/models/Player.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,9 +224,14 @@
 					<div class="tsd-signature tsd-kind-icon">_unsuccessful<wbr>Blocks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L7">server/models/Player.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L14">server/models/Player.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many unsuccessful blocks the player has made in a row</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -215,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L65">server/models/Player.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L94">server/models/Player.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -232,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L61">server/models/Player.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L90">server/models/Player.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -249,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L73">server/models/Player.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L102">server/models/Player.ts:102</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -266,10 +297,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L39">server/models/Player.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L68">server/models/Player.ts:68</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Is the player able to block on this round</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><a href="_server_models_player_.player.html#_unsuccessfulblocks">_unsuccessfulBlocks</a> equal to <a href="_server_models_player_.player.html#_max_unsuccessful_blocks">_MAX_UNSUCCESSFUL_BLOCKS</a></p>
 						</li>
 					</ul>
 				</section>
@@ -283,10 +320,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L35">server/models/Player.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L60">server/models/Player.ts:60</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Is the player able to reload on this round</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><a href="_server_models_player_.player.html#_bullets">_bullets</a> less than <a href="_server_models_player_.player.html#_max_bullets">_MAX_BULLETS</a></p>
 						</li>
 					</ul>
 				</section>
@@ -300,10 +343,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L31">server/models/Player.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L52">server/models/Player.ts:52</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Is the player able to shoot on this round</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><a href="_server_models_player_.player.html#_bullets">_bullets</a> is greated than 0</p>
 						</li>
 					</ul>
 				</section>
@@ -317,7 +366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L19">server/models/Player.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L36">server/models/Player.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -334,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L53">server/models/Player.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L82">server/models/Player.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
@@ -358,7 +407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L23">server/models/Player.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L40">server/models/Player.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -375,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L57">server/models/Player.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L86">server/models/Player.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -392,7 +441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L49">server/models/Player.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L78">server/models/Player.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -415,7 +464,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L27">server/models/Player.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L44">server/models/Player.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -438,7 +487,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L69">server/models/Player.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L98">server/models/Player.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -461,10 +510,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Player.ts#L77">server/models/Player.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Player.ts#L110">server/models/Player.ts:110</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a <a href="../interfaces/_shared_events_playerdetails_.playerdetails.html">PlayerDetails</a> compliant instance of this player instance</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_shared_events_playerdetails_.playerdetails.html" class="tsd-signature-type">PlayerDetails</a></h4>
+							<p>Representation of this instance based on <a href="../interfaces/_shared_events_playerdetails_.playerdetails.html">PlayerDetails</a></p>
 						</li>
 					</ul>
 				</section>

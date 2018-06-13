@@ -69,6 +69,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A representation of the server, containing many lobbies. The server is responsible for transferring connections
+						into a lobby, but not handling communication with clients</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -117,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Server.ts#L5">server/models/Server.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Server.ts#L9">server/models/Server.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></h4>
@@ -133,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">lobbies<span class="tsd-signature-symbol">:</span> <a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Server.ts#L5">server/models/Server.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Server.ts#L9">server/models/Server.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -144,25 +152,37 @@
 					<a name="connectplayertolobby" class="tsd-anchor"></a>
 					<h3>connect<wbr>Player<wbr>ToLobby</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">connect<wbr>Player<wbr>ToLobby<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">connect<wbr>Player<wbr>ToLobby<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Server.ts#L15">server/models/Server.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Server.ts#L29">server/models/Server.ts:29</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Connects a player to a given lobby if it exists</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>connection: <span class="tsd-signature-type">WebSocket</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The player trying to connect to the lobby</p>
+									</div>
 								</li>
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The lobbyID of the Lobby instance the player is trying to connect to</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>Player has successfully connected to the lobby</p>
 						</li>
 					</ul>
 				</section>
@@ -176,13 +196,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Server.ts#L11">server/models/Server.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Server.ts#L19">server/models/Server.ts:19</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new lobby instance and pushes it into <a href="_server_models_server_.server.html#lobbies">lobbies</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The desired ID of the lobby</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -199,13 +227,22 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Server.ts#L32">server/models/Server.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Server.ts#L61">server/models/Server.ts:61</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Destroys the instance of Lobby given its ID if it exists by removing the lobby from <a href="_server_models_server_.server.html#lobbies">lobbies</a>
+									and setting the instance to null</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the Lobby to be destroyed</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -222,19 +259,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/392d1e2/src/server/models/Server.ts#L22">server/models/Server.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Server.ts#L46">server/models/Server.ts:46</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Find the lobby with the specified ID if it exists</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the Lobby</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a>
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">null</span>
 							</h4>
+							<p>Instance of the Lobby if it exists, otherwise null</p>
 						</li>
 					</ul>
 				</section>
