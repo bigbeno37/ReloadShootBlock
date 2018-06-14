@@ -23,11 +23,14 @@ export default class Player {
      * How many unsuccessful blocks the player can make in a row before not being able to block for a round
      */
     private readonly _MAX_UNSUCCESSFUL_BLOCKS: number;
+    private _stunned: boolean;
 
-    constructor(MAX_BULLETS: number = 6, MAX_UNSUCCESSFUL_BLOCKS: number = 2) {
+    constructor(MAX_BULLETS: number = 3, MAX_UNSUCCESSFUL_BLOCKS: number = 2) {
         this._bullets = 1;
         this._points = 0;
         this._unsuccessfulBlocks = 0;
+        this._stunned = false;
+        this._choice = null;
 
         this._MAX_BULLETS = MAX_BULLETS;
         this._MAX_UNSUCCESSFUL_BLOCKS = MAX_UNSUCCESSFUL_BLOCKS;
@@ -47,10 +50,10 @@ export default class Player {
 
     /**
      * Is the player able to shoot on this round
-     * @return [[_bullets]] is greater than 0
+     * @return [[_bullets]] is greater than 0 AND not [[_stunned]]
      */
     canShoot(): boolean {
-        return this._bullets > 0;
+        return this._bullets > 0 && !this._stunned;
     }
 
     /**
@@ -63,16 +66,10 @@ export default class Player {
 
     /**
      * Is the player able to block on this round
-     * @return [[_unsuccessfulBlocks]] equal to [[_MAX_UNSUCCESSFUL_BLOCKS]]
+     * @return [[_unsuccessfulBlocks]] less than [[_MAX_UNSUCCESSFUL_BLOCKS]]
      */
     canBlock(): boolean {
-        if (this._unsuccessfulBlocks === this._MAX_UNSUCCESSFUL_BLOCKS) {
-            this._unsuccessfulBlocks = 0;
-
-            return false;
-        }
-
-        return true;
+        return this._unsuccessfulBlocks < this._MAX_UNSUCCESSFUL_BLOCKS;
     }
 
     setChoice(choice: Events | null) {
@@ -115,5 +112,13 @@ export default class Player {
             canShoot: this.canShoot(),
             canBlock: this.canBlock()
         }
+    }
+
+    getMaxBullets() {
+        return this._MAX_BULLETS;
+    }
+
+    setStunned(stunned: boolean) {
+        this._stunned = stunned;
     }
 }

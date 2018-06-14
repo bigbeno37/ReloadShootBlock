@@ -1,11 +1,11 @@
 import PlayerDetails from "./PlayerDetails";
+import ServerEvent from "./ServerEvent";
 
-export default interface BeginGameEvent {
-    /**
-     * The event itself (i.e. 'begin game')
-     */
-    event: string;
-
+/**
+ * Sent to client at the start of a game<br/>
+ * [[event]] must be 'begin game'
+ */
+export default interface BeginGameEvent extends ServerEvent {
     /**
      * The current instance of player 1
      */

@@ -7,6 +7,8 @@ import NewRoundEvent from "../../shared/events/NewRoundEvent";
 import BeginGameEvent from "../../shared/events/BeginGameEvent";
 import RoundOverEvent from "../../shared/events/RoundOverEvent";
 import NewLobbyEvent from "../../shared/events/NewLobbyEvent";
+import GameEndedEvent from "../../shared/events/GameEndedEvent";
+import Player from "./Player";
 
 /**
  * A representation of a Lobby, which is responsible for handling messages to and from this Lobby instance.
@@ -182,7 +184,12 @@ export default class Lobby {
      * @param victor The winner of this lobby (either player 1 or player 2)
      */
     private endGame(victor: string) {
-        this.sendToPlayers('end ' + victor);
+        let event: GameEndedEvent = {
+            event: 'game ended',
+            winner: victor
+        };
+
+        this.sendToPlayers(JSON.stringify(event));
 
         this._server.destroyLobby(this._id);
     }
