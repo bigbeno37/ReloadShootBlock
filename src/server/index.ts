@@ -9,14 +9,28 @@ const app = express();
 const expressWs = require('express-ws')(app);
 
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/../../../client/');
+app.set('views', __dirname + '/../../client/');
 
-app.use(express.static(__dirname + '/../../../client/'));
+app.use(express.static(__dirname + '/../../client/'));
+
+app.get('/', (req: any, res: any) => res.render('index'));
+
+app.get('/:lobbyID', (req: any, res: any) => {
+    if (req.params.lobbyID === '#') {
+        return;
+    }
+
+    console.log("Invited player is trying to connect!");
+
+    if (server.findLobbyWithID(req.params.lobbyID)) {
+        res.render('index', {connectingTo: req.params.lobbyID});
+    } else {
+        res.send('No lobby found! Maybe your mate\'s an idiot and misspelled four charactres');
+    }
+});
 
 // The actual game engine
 const server = new Server();
-
-app.get('/', (req: any, res: any) => res.render('index'));
 
 app.ws('/', (connection: WebSocket, req: any) => {
     connection.on('message', message => {
@@ -42,20 +56,6 @@ app.ws('/', (connection: WebSocket, req: any) => {
 
         console.log(`Received ${message}`);
     });
-});
-
-app.get('/:lobbyID', (req: any, res: any) => {
-    if (req.params.lobbyID === '#') {
-        return;
-    }
-
-    console.log("Invited player is trying to connect!");
-
-    if (server.findLobbyWithID(req.params.lobbyID)) {
-        res.render('index', {connectingTo: req.params.lobbyID});
-    } else {
-        res.send('No lobby found! Maybe your mate\'s an idiot and misspelled four charactres');
-    }
 });
 
 app.listen(PORT, () => {

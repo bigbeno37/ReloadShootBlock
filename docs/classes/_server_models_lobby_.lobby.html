@@ -1,0 +1,693 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Lobby | Reload, Shoot, Block!</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Reload, Shoot, Block!</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_server_models_lobby_.html">&quot;server/models/Lobby&quot;</a>
+				</li>
+				<li>
+					<a href="_server_models_lobby_.lobby.html">Lobby</a>
+				</li>
+			</ul>
+			<h1>Class Lobby</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A representation of a Lobby, which is responsible for handling messages to and from this Lobby instance.
+							The event loop consists of:
+							<a href="_server_models_lobby_.lobby.html#connectplayer">connectPlayer</a> (wait for two players) -&gt; <a href="_server_models_lobby_.lobby.html#begingame">beginGame</a> (wait for messages)
+							-&gt; <a href="_server_models_lobby_.lobby.html#choicehandler">choiceHandler</a> (wait for both players to make a choice)
+						-&gt; <a href="_server_models_lobby_.lobby.html#checkforallchoicesmade">checkForAllChoicesMade</a> -&gt; <a href="_server_models_lobby_.lobby.html#beginround">beginRound</a> -&gt; <a href="_server_models_lobby_.lobby.html#choicehandler">choiceHandler</a></p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Lobby</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_server_models_lobby_.lobby.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#_first_to" class="tsd-kind-icon">_FIRST_<wbr>TO</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#_round_delay" class="tsd-kind-icon">_ROUND_<wbr>DELAY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#_game" class="tsd-kind-icon">_game</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#_id" class="tsd-kind-icon">_id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#_players" class="tsd-kind-icon">_players</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#_server" class="tsd-kind-icon">_server</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#begingame" class="tsd-kind-icon">begin<wbr>Game</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#beginround" class="tsd-kind-icon">begin<wbr>Round</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#checkforallchoicesmade" class="tsd-kind-icon">check<wbr>For<wbr>All<wbr>Choices<wbr>Made</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_lobby_.lobby.html#choicehandler" class="tsd-kind-icon">choice<wbr>Handler</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_lobby_.lobby.html#connectplayer" class="tsd-kind-icon">connect<wbr>Player</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#endgame" class="tsd-kind-icon">end<wbr>Game</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_lobby_.lobby.html#getgameengine" class="tsd-kind-icon">get<wbr>Game<wbr>Engine</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_lobby_.lobby.html#getid" class="tsd-kind-icon">getID</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_lobby_.lobby.html#getplayers" class="tsd-kind-icon">get<wbr>Players</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_server_models_lobby_.lobby.html#sendtoplayers" class="tsd-kind-icon">send<wbr>ToPlayers</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Lobby<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, server<span class="tsd-signature-symbol">: </span><a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a>, firstTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, roundDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L38">server/models/Lobby.ts:38</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>server: <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> firstTo: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> roundDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5000</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_first_to" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _FIRST_<wbr>TO</h3>
+					<div class="tsd-signature tsd-kind-icon">_FIRST_<wbr>TO<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L24">server/models/Lobby.ts:24</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many points a player has to reach before the game is over</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_round_delay" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _ROUND_<wbr>DELAY</h3>
+					<div class="tsd-signature tsd-kind-icon">_ROUND_<wbr>DELAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L29">server/models/Lobby.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How many milliseconds to wait after a round over to initiate a new round</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_game" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _game</h3>
+					<div class="tsd-signature tsd-kind-icon">_game<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L33">server/models/Lobby.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _id</h3>
+					<div class="tsd-signature tsd-kind-icon">_id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L19">server/models/Lobby.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_players" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _players</h3>
+					<div class="tsd-signature tsd-kind-icon">_players<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L31">server/models/Lobby.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_server" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _server</h3>
+					<div class="tsd-signature tsd-kind-icon">_server<span class="tsd-signature-symbol">:</span> <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L38">server/models/Lobby.ts:38</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Callback to the parent server instance (calls <a href="_server_models_server_.server.html#destroylobby">Server.destroyLobby</a> at game over)</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="begingame" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> begin<wbr>Game</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">begin<wbr>Game<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L79">server/models/Lobby.ts:79</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a <a href="../interfaces/_shared_events_begingameevent_.begingameevent.html">BeginGameEvent</a> to both players and sets the <code>.on(&#39;message&#39;, ...)</code> handlers
+									to call <a href="_server_models_lobby_.lobby.html#choicehandler">choiceHandler</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="beginround" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> begin<wbr>Round</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">begin<wbr>Round<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L172">server/models/Lobby.ts:172</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends details of the game&#39;s state (i.e. player details such as number of bullets,
+									points, etc.) to each player connected to the lobby</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="checkforallchoicesmade" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> check<wbr>For<wbr>All<wbr>Choices<wbr>Made</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>For<wbr>All<wbr>Choices<wbr>Made<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L137">server/models/Lobby.ts:137</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks to see if both players have made a choice. If so, a <a href="../interfaces/_shared_events_roundoverevent_.roundoverevent.html">RoundOverEvent</a> is generated by calling <a href="_server_gameengineimpl_.gameengineimpl.html#processround">GameEngineImpl.processRound</a>
+										and is sent to both players. This method waits <a href="_server_models_lobby_.lobby.html#_round_delay">_ROUND_DELAY</a> milliseconds until it then either calls
+										<a href="_server_models_lobby_.lobby.html#endgame">endGame</a> if either player has reached <a href="_server_models_lobby_.lobby.html#_first_to">_FIRST_TO</a> points, otherwise it will begin a new round
+									by calling <a href="_server_models_lobby_.lobby.html#beginround">beginRound</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="choicehandler" class="tsd-anchor"></a>
+					<h3>choice<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">choice<wbr>Handler<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket.Data</span>, player<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L104">server/models/Lobby.ts:104</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the choice of <code>player</code> to the corresponding <code>message</code> based on <a href="../enums/_server_enums_events_.events.html">Events</a>. Afterwards, this
+									will call <a href="_server_models_lobby_.lobby.html#checkforallchoicesmade">checkForAllChoicesMade</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>message: <span class="tsd-signature-type">WebSocket.Data</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Message received from <code>player</code></p>
+									</div>
+								</li>
+								<li>
+									<h5>player: <span class="tsd-signature-type">WebSocket</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The player the message was sent from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="connectplayer" class="tsd-anchor"></a>
+					<h3>connect<wbr>Player</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">connect<wbr>Player<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L58">server/models/Lobby.ts:58</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Store the connection of a player into this Lobby as either player 1 or player 2.
+										This is determined from the size of <a href="_server_models_lobby_.lobby.html#_players">_players</a>, as each connection is automatically
+										pushed into <a href="_server_models_lobby_.lobby.html#_players">_players</a>. If this is player 1, a <a href="../interfaces/_shared_events_newlobbyevent_.newlobbyevent.html">NewLobbyEvent</a> is sent to the
+									player.</p>
+								</div>
+								<p>Once <a href="_server_models_lobby_.lobby.html#_players">_players</a>.length reaches 2, <a href="_server_models_lobby_.lobby.html#begingame">beginGame</a> is called</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>connection: <span class="tsd-signature-type">WebSocket</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The player to be added into this lobby</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="endgame" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> end<wbr>Game</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">end<wbr>Game<span class="tsd-signature-symbol">(</span>victor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L184">server/models/Lobby.ts:184</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends each player a message declaring who won, before calling <a href="_server_models_server_.server.html#destroylobby">Server.destroyLobby</a> to remove the lobby</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>victor: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The winner of this lobby (either player 1 or player 2)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getgameengine" class="tsd-anchor"></a>
+					<h3>get<wbr>Game<wbr>Engine</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Game<wbr>Engine<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L207">server/models/Lobby.ts:207</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getid" class="tsd-anchor"></a>
+					<h3>getID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L199">server/models/Lobby.ts:199</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getplayers" class="tsd-anchor"></a>
+					<h3>get<wbr>Players</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Players<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L203">server/models/Lobby.ts:203</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="sendtoplayers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> send<wbr>ToPlayers</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>ToPlayers<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/cf488a0/src/server/models/Lobby.ts#L194">server/models/Lobby.ts:194</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A utility method to send a message to both players connected to the lobby</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>message: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The message to be sent</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_client_script_.html">"client/script"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_gameengineimpl_.html">"server/<wbr>Game<wbr>Engine<wbr>Impl"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_roundresultimpl_.html">"server/<wbr>Round<wbr>Result<wbr>Impl"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_enums_events_.html">"server/enums/<wbr>Events"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_enums_roundstate_.html">"server/enums/<wbr>Round<wbr>State"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_index_.html">"server/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_models_gameengine_.html">"server/models/<wbr>Game<wbr>Engine"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_server_models_lobby_.html">"server/models/<wbr>Lobby"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_models_player_.html">"server/models/<wbr>Player"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_models_server_.html">"server/models/<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_shared_events_begingameevent_.html">"shared/events/<wbr>Begin<wbr>Game<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_shared_events_newlobbyevent_.html">"shared/events/<wbr>New<wbr>Lobby<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_shared_events_newroundevent_.html">"shared/events/<wbr>New<wbr>Round<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_shared_events_playerdetails_.html">"shared/events/<wbr>Player<wbr>Details"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_shared_events_roundoverevent_.html">"shared/events/<wbr>Round<wbr>Over<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_shared_events_roundresult_.html">"shared/events/<wbr>Round<wbr>Result"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_server_models_lobby_.lobby.html" class="tsd-kind-icon">Lobby</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_server_models_lobby_.lobby.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#_first_to" class="tsd-kind-icon">_FIRST_<wbr>TO</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#_round_delay" class="tsd-kind-icon">_ROUND_<wbr>DELAY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#_game" class="tsd-kind-icon">_game</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#_id" class="tsd-kind-icon">_id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#_players" class="tsd-kind-icon">_players</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#_server" class="tsd-kind-icon">_server</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#begingame" class="tsd-kind-icon">begin<wbr>Game</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#beginround" class="tsd-kind-icon">begin<wbr>Round</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#checkforallchoicesmade" class="tsd-kind-icon">check<wbr>For<wbr>All<wbr>Choices<wbr>Made</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_models_lobby_.lobby.html#choicehandler" class="tsd-kind-icon">choice<wbr>Handler</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_models_lobby_.lobby.html#connectplayer" class="tsd-kind-icon">connect<wbr>Player</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#endgame" class="tsd-kind-icon">end<wbr>Game</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_models_lobby_.lobby.html#getgameengine" class="tsd-kind-icon">get<wbr>Game<wbr>Engine</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_models_lobby_.lobby.html#getid" class="tsd-kind-icon">getID</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_models_lobby_.lobby.html#getplayers" class="tsd-kind-icon">get<wbr>Players</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_server_models_lobby_.lobby.html#sendtoplayers" class="tsd-kind-icon">send<wbr>ToPlayers</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
