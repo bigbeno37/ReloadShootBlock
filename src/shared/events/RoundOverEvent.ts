@@ -1,12 +1,12 @@
 import PlayerDetails from "./PlayerDetails";
 import RoundResult from "./RoundResult";
+import ServerEvent from "./ServerEvent";
 
-export default interface RoundOverEvent {
-    /**
-     * The event, 'round over'
-     */
-    event: string;
-
+/**
+ * Sent to the client when a round has finished<br/>
+ * [[event]] must be 'round over'
+ */
+export default interface RoundOverEvent extends ServerEvent {
     /**
      * The results of the round
      */

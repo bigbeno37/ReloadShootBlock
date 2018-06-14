@@ -2,6 +2,7 @@ import NewLobbyEvent from "../shared/events/NewLobbyEvent";
 import NewRoundEvent from "../shared/events/NewRoundEvent";
 import RoundOverEvent from "../shared/events/RoundOverEvent";
 import BeginGameEvent from "../shared/events/BeginGameEvent";
+import GameEndedEvent from "../shared/events/GameEndedEvent";
 
 const ClipboardJS = require('clipboard/dist/clipboard.min');
 
@@ -50,6 +51,7 @@ function newRound() {
     $(".lobby").hide();
     $(".waiting").hide();
     $(".results").hide();
+    $(".gameover").hide();
 
     $(".game").show();
     $(".buttons").show();
@@ -64,7 +66,6 @@ function sendMove(move: string) {
     server.send(move);
 }
 
-// TODO: Replace with interface type
 function showResults(round: RoundOverEvent) {
     $(".buttons").hide();
     $(".waiting").hide();
@@ -76,6 +77,14 @@ function showResults(round: RoundOverEvent) {
     $("#player2Choice").html(round.results.player2Choice);
 
     updateScores(round);
+}
+
+function showGameOver(serverEvent: GameEndedEvent) {
+    $(".results").hide();
+    $(".gameover").show();
+    $("#winningPlayer").html(serverEvent.winner + ' wins the game!');
+
+    setTimeout(() => {window.location.replace(location.origin)}, 5000);
 }
 
 $(function() {
@@ -103,7 +112,7 @@ $(function() {
     server.onmessage = message => {
         console.log('Server said: ' + message.data);
 
-        let serverEvent: NewRoundEvent | NewLobbyEvent | RoundOverEvent = JSON.parse(message.data);
+        let serverEvent: NewRoundEvent | NewLobbyEvent | RoundOverEvent | GameEndedEvent = JSON.parse(message.data);
 
         switch (serverEvent.event) {
             case "new lobby":
@@ -125,6 +134,8 @@ $(function() {
                 showResults(<RoundOverEvent>serverEvent);
                 
                 break;
+            case "game ended":
+                showGameOver(<GameEndedEvent>serverEvent);
         }
     };
 });

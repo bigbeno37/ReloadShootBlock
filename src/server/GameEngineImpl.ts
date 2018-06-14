@@ -3,6 +3,7 @@ import Events from './enums/Events';
 import GameEngine from './models/GameEngine';
 import RoundResult from "../shared/events/RoundResult";
 import RoundResultImpl from "./RoundResultImpl";
+import InvalidChoiceError from "./errors/InvalidChoiceError";
 
 /**
  * Contains the implementation of [[GameEngine]] and is used to process rounds in [[Lobby]]
@@ -30,6 +31,12 @@ export default class GameEngineImpl implements GameEngine {
      * @return {RoundResult}
      */
     processRound(): RoundResult {
+        this.validateChoice(this._player1);
+        this.validateChoice(this._player2);
+
+        this._player1.setStunned(false);
+        this._player2.setStunned(false);
+
         switch (this._player1.getChoice()) {
             case Events.SHOOT:
                 this.shootHandler();
@@ -50,6 +57,42 @@ export default class GameEngineImpl implements GameEngine {
         this.clearPlayerChoices();
 
         return roundResult;
+    }
+
+    /**
+     * Validate the choice a player has selected before processing the round. If a move is found to be invalid,
+     * this will throw [[InvalidChoiceError]]
+     * @param player The player whose choice is to be validated
+     */
+    private validateChoice(player: Player) {
+        switch(player.getChoice()) {
+            case null:
+                throw new InvalidChoiceError('Choice cannot be null!');
+            case Events.RELOAD:
+                if (player.getBullets() >= player.getMaxBullets()) {
+                    this.clearPlayerChoices();
+
+                    throw new InvalidChoiceError(`Cannot reload beyond ${player.getMaxBullets()}`);
+                }
+
+                break;
+            case Events.SHOOT:
+                if (!player.canShoot()) {
+                    this.clearPlayerChoices();
+
+                    throw new InvalidChoiceError('Player cannot shoot this round!');
+                }
+
+                break;
+            case Events.BLOCK:
+                if (!player.canBlock()) {
+                    this.clearPlayerChoices();
+
+                    throw new InvalidChoiceError('Player cannot block this round!');
+                }
+
+                break;
+        }
     }
 
     /**
@@ -108,6 +151,10 @@ export default class GameEngineImpl implements GameEngine {
                 this._player2.removeBullet();
 
                 break;
+            case Events.BLOCK:
+                this._player1.setStunned(true);
+
+                break;
         }
     }
 
@@ -130,6 +177,8 @@ export default class GameEngineImpl implements GameEngine {
             case Events.SHOOT:
                 this._player1.setUnsuccessfulBlocks(0);
                 this._player2.setUnsuccessfulBlocks(0);
+                this._player2.removeBullet();
+                this._player2.setStunned(true);
 
                 break;
             case Events.BLOCK:

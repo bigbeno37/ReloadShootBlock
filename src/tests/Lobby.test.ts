@@ -6,6 +6,7 @@ import RoundOverEvent from "../shared/events/RoundOverEvent";
 import RoundResultImpl from "../server/RoundResultImpl";
 import Events from "../server/enums/Events";
 import NewRoundEvent from "../shared/events/NewRoundEvent";
+import GameEndedEvent from "../shared/events/GameEndedEvent";
 
 let lobby: Lobby;
 let player1: any;
@@ -113,6 +114,11 @@ describe('Lobby', () => {
 
         jest.runAllTimers();
 
-        expect(player1.send).toHaveBeenLastCalledWith('end player 1');
+        let event: GameEndedEvent = {
+            event: 'game ended',
+            winner: 'player 1'
+        };
+
+        expect(player1.send).toHaveBeenLastCalledWith(JSON.stringify(event));
     });
 });
