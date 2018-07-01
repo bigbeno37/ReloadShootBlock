@@ -98,7 +98,7 @@ $(function() {
     };
 
     server.onopen = () => {
-        console.log("Made connection to WebSocket Server!")
+        console.log("Made connection to WebSocket Server!");
 
         // If this is the player that is connecting to a specified lobby, then skip the main page and go straight to the
         // specified lobby (reaching this point means the lobby exists and the lobbyCode found is valid)

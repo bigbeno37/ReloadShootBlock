@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Server | Reload, Shoot, Block!</title>
+	<title>IGameEngine | Reload, Shoot, Block!</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,33 +56,31 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_server_models_server_.html">&quot;server/models/Server&quot;</a>
+					<a href="../modules/_server_interfaces_igameengine_.html">&quot;server/interfaces/IGameEngine&quot;</a>
 				</li>
 				<li>
-					<a href="_server_models_server_.server.html">Server</a>
+					<a href="_server_interfaces_igameengine_.igameengine.html">IGameEngine</a>
 				</li>
 			</ul>
-			<h1>Class Server</h1>
+			<h1>Interface IGameEngine</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A representation of the server, containing many lobbies. The server is responsible for transferring connections
-						into a lobby, but not handling communication with clients</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Server</span>
+						<span class="target">IGameEngine</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -90,197 +88,83 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_server_models_server_.server.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_server_models_server_.server.html#lobbies" class="tsd-kind-icon">lobbies</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_server_.server.html#connectplayertolobby" class="tsd-kind-icon">connect<wbr>Player<wbr>ToLobby</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_server_.server.html#createlobby" class="tsd-kind-icon">create<wbr>Lobby</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_server_.server.html#destroylobby" class="tsd-kind-icon">destroy<wbr>Lobby</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_models_server_.server.html#findlobbywithid" class="tsd-kind-icon">find<wbr>Lobby<wbr>WithID</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igameengine_.igameengine.html#getplayer1" class="tsd-kind-icon">get<wbr>Player1</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igameengine_.igameengine.html#getplayer2" class="tsd-kind-icon">get<wbr>Player2</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igameengine_.igameengine.html#processround" class="tsd-kind-icon">process<wbr>Round</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Server<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Server.ts#L9">server/models/Server.ts:9</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="lobbies" class="tsd-anchor"></a>
-					<h3>lobbies</h3>
-					<div class="tsd-signature tsd-kind-icon">lobbies<span class="tsd-signature-symbol">:</span> <a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Server.ts#L9">server/models/Server.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="connectplayertolobby" class="tsd-anchor"></a>
-					<h3>connect<wbr>Player<wbr>ToLobby</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">connect<wbr>Player<wbr>ToLobby<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">WebSocket</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getplayer1" class="tsd-anchor"></a>
+					<h3>get<wbr>Player1</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Player1<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Server.ts#L29">server/models/Server.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameEngine.ts#L9">server/interfaces/IGameEngine.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Connects a player to a given lobby if it exists</p>
+									<p>Returns player 1</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>connection: <span class="tsd-signature-type">WebSocket</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The player trying to connect to the lobby</p>
-									</div>
-								</li>
-								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The lobbyID of the Lobby instance the player is trying to connect to</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>Player has successfully connected to the lobby</p>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="createlobby" class="tsd-anchor"></a>
-					<h3>create<wbr>Lobby</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Lobby<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getplayer2" class="tsd-anchor"></a>
+					<h3>get<wbr>Player2</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Player2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Server.ts#L19">server/models/Server.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameEngine.ts#L15">server/interfaces/IGameEngine.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new lobby instance and pushes it into <a href="_server_models_server_.server.html#lobbies">lobbies</a>.</p>
+									<p>Returns player 2</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The desired ID of the lobby</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="destroylobby" class="tsd-anchor"></a>
-					<h3>destroy<wbr>Lobby</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">destroy<wbr>Lobby<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="processround" class="tsd-anchor"></a>
+					<h3>process<wbr>Round</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Round<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shared_events_roundresult_.roundresult.html" class="tsd-signature-type">RoundResult</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Server.ts#L61">server/models/Server.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameEngine.ts#L23">server/interfaces/IGameEngine.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Destroys the instance of Lobby given its ID if it exists by removing the lobby from <a href="_server_models_server_.server.html#lobbies">lobbies</a>
-									and setting the instance to null</p>
+									<p>Based on Player.getChoice() for both players, calculate what actions are to be
+										taken (e.g. if a player should lose a bullet, win a point, etc.) and return the
+									winning player. If the round is a draw, return the reason.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>ID of the Lobby to be destroyed</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="findlobbywithid" class="tsd-anchor"></a>
-					<h3>find<wbr>Lobby<wbr>WithID</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>Lobby<wbr>WithID<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Server.ts#L46">server/models/Server.ts:46</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Find the lobby with the specified ID if it exists</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The ID of the Lobby</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">null</span>
-							</h4>
-							<p>Instance of the Lobby if it exists, otherwise null</p>
+							<h4 class="tsd-returns-title">Returns <a href="_shared_events_roundresult_.roundresult.html" class="tsd-signature-type">RoundResult</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -310,7 +194,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_index_.html">"server/index"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_server_interfaces_igameengine_.html">"server/interfaces/IGame<wbr>Engine"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -325,7 +209,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_models_player_.html">"server/models/<wbr>Player"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_models_server_.html">"server/models/<wbr>Server"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -361,26 +245,17 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_server_models_server_.server.html" class="tsd-kind-icon">Server</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_server_interfaces_igameengine_.igameengine.html" class="tsd-kind-icon">IGame<wbr>Engine</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_server_models_server_.server.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_server_interfaces_igameengine_.igameengine.html#getplayer1" class="tsd-kind-icon">get<wbr>Player1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_server_models_server_.server.html#lobbies" class="tsd-kind-icon">lobbies</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_server_interfaces_igameengine_.igameengine.html#getplayer2" class="tsd-kind-icon">get<wbr>Player2</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_server_models_server_.server.html#connectplayertolobby" class="tsd-kind-icon">connect<wbr>Player<wbr>ToLobby</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_server_models_server_.server.html#createlobby" class="tsd-kind-icon">create<wbr>Lobby</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_server_models_server_.server.html#destroylobby" class="tsd-kind-icon">destroy<wbr>Lobby</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_server_models_server_.server.html#findlobbywithid" class="tsd-kind-icon">find<wbr>Lobby<wbr>WithID</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_server_interfaces_igameengine_.igameengine.html#processround" class="tsd-kind-icon">process<wbr>Round</a>
 							</li>
 						</ul>
 					</li>

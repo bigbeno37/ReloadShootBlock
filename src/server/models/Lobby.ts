@@ -1,14 +1,15 @@
 import WebSocket from 'ws';
 import GameEngine from "./GameEngine";
 import Events from "../enums/Events";
-import GameEngineImpl from "../GameEngineImpl";
 import Server from "./Server";
 import NewRoundEvent from "../../shared/events/NewRoundEvent";
 import BeginGameEvent from "../../shared/events/BeginGameEvent";
 import RoundOverEvent from "../../shared/events/RoundOverEvent";
 import NewLobbyEvent from "../../shared/events/NewLobbyEvent";
 import GameEndedEvent from "../../shared/events/GameEndedEvent";
-import Player from "./Player";
+import IGameEngine from "../interfaces/IGameEngine";
+import IGameRules from "../interfaces/IGameRules";
+import StandardRules from "./StandardRules";
 
 /**
  * A representation of a Lobby, which is responsible for handling messages to and from this Lobby instance.
@@ -32,17 +33,17 @@ export default class Lobby {
 
     private readonly _players: WebSocket[];
 
-    private readonly _game: GameEngine;
+    private readonly _game: IGameEngine;
 
     /**
      * Callback to the parent server instance (calls [[Server.destroyLobby]] at game over)
      */
     private _server: Server;
 
-    constructor(id: string, server: Server, firstTo: number = 5, roundDelay: number = 5000) {
+    constructor(id: string, server: Server, gameRules: IGameRules = new StandardRules(), firstTo: number = 5, roundDelay: number = 5000) {
         this._id = id;
         this._players = [];
-        this._game = new GameEngineImpl();
+        this._game = new GameEngine(gameRules);
         this._server = server;
         this._ROUND_DELAY = roundDelay;
         this._FIRST_TO = firstTo;

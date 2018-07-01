@@ -17,23 +17,23 @@ export default class Player {
     /**
      * How many bullets the player can have before not being able to add any more
      */
-    private readonly _MAX_BULLETS: number;
+    private readonly MAX_BULLETS: number;
 
     /**
      * How many unsuccessful blocks the player can make in a row before not being able to block for a round
      */
-    private readonly _MAX_UNSUCCESSFUL_BLOCKS: number;
+    private readonly MAX_UNSUCCESSFUL_BLOCKS: number;
     private _stunned: boolean;
 
-    constructor(MAX_BULLETS: number = 3, MAX_UNSUCCESSFUL_BLOCKS: number = 2) {
+    constructor(MAX_BULLETS: number, MAX_UNSUCCESSFUL_BLOCKS: number) {
         this._bullets = 1;
         this._points = 0;
         this._unsuccessfulBlocks = 0;
         this._stunned = false;
         this._choice = null;
 
-        this._MAX_BULLETS = MAX_BULLETS;
-        this._MAX_UNSUCCESSFUL_BLOCKS = MAX_UNSUCCESSFUL_BLOCKS;
+        this.MAX_BULLETS = MAX_BULLETS;
+        this.MAX_UNSUCCESSFUL_BLOCKS = MAX_UNSUCCESSFUL_BLOCKS;
     }
 
     getBullets(): number {
@@ -58,18 +58,18 @@ export default class Player {
 
     /**
      * Is the player able to reload on this round
-     * @return [[_bullets]] less than [[_MAX_BULLETS]]
+     * @return [[_bullets]] less than [[MAX_BULLETS]]
      */
     canReload(): boolean {
-        return this._bullets < this._MAX_BULLETS;
+        return this._bullets < this.MAX_BULLETS;
     }
 
     /**
      * Is the player able to block on this round
-     * @return [[_unsuccessfulBlocks]] less than [[_MAX_UNSUCCESSFUL_BLOCKS]]
+     * @return [[_unsuccessfulBlocks]] less than [[MAX_UNSUCCESSFUL_BLOCKS]]
      */
     canBlock(): boolean {
-        return this._unsuccessfulBlocks < this._MAX_UNSUCCESSFUL_BLOCKS;
+        return this._unsuccessfulBlocks < this.MAX_UNSUCCESSFUL_BLOCKS;
     }
 
     setChoice(choice: Events | null) {
@@ -100,6 +100,14 @@ export default class Player {
         this._unsuccessfulBlocks++;
     }
 
+    getMaxBullets() {
+        return this.MAX_BULLETS;
+    }
+
+    setStunned(stunned: boolean) {
+        this._stunned = stunned;
+    }
+
     /**
      * Returns a [[PlayerDetails]] compliant instance of this player instance
      * @return Representation of this instance based on [[PlayerDetails]]
@@ -112,13 +120,5 @@ export default class Player {
             canShoot: this.canShoot(),
             canBlock: this.canBlock()
         }
-    }
-
-    getMaxBullets() {
-        return this._MAX_BULLETS;
-    }
-
-    setStunned(stunned: boolean) {
-        this._stunned = stunned;
     }
 }

@@ -133,13 +133,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Lobby<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, server<span class="tsd-signature-symbol">: </span><a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a>, firstTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, roundDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Lobby<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, server<span class="tsd-signature-symbol">: </span><a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a>, gameRules<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_server_interfaces_igamerules_.igamerules.html" class="tsd-signature-type">IGameRules</a>, firstTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, roundDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_models_lobby_.lobby.html" class="tsd-signature-type">Lobby</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L40">server/models/Lobby.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L41">server/models/Lobby.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -149,6 +149,9 @@
 								</li>
 								<li>
 									<h5>server: <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> gameRules: <a href="../interfaces/_server_interfaces_igamerules_.igamerules.html" class="tsd-signature-type">IGameRules</a><span class="tsd-signature-symbol"> =&nbsp;new StandardRules()</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> firstTo: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></h5>
@@ -170,7 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">_FIRST_<wbr>TO<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L26">server/models/Lobby.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L27">server/models/Lobby.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">_ROUND_<wbr>DELAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L31">server/models/Lobby.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L32">server/models/Lobby.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,10 +200,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_game" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _game</h3>
-					<div class="tsd-signature tsd-kind-icon">_game<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></div>
+					<div class="tsd-signature tsd-kind-icon">_game<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_interfaces_igameengine_.igameengine.html" class="tsd-signature-type">IGameEngine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L35">server/models/Lobby.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L36">server/models/Lobby.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">_id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L21">server/models/Lobby.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L22">server/models/Lobby.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">_players<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L33">server/models/Lobby.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L34">server/models/Lobby.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">_server<span class="tsd-signature-symbol">:</span> <a href="_server_models_server_.server.html" class="tsd-signature-type">Server</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L40">server/models/Lobby.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L41">server/models/Lobby.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -252,7 +255,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L81">server/models/Lobby.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L82">server/models/Lobby.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,7 +278,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L174">server/models/Lobby.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L175">server/models/Lobby.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -298,12 +301,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L139">server/models/Lobby.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L140">server/models/Lobby.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks to see if both players have made a choice. If so, a <a href="../interfaces/_shared_events_roundoverevent_.roundoverevent.html">RoundOverEvent</a> is generated by calling <a href="_server_gameengineimpl_.gameengineimpl.html#processround">GameEngineImpl.processRound</a>
+									<p>Checks to see if both players have made a choice. If so, a <a href="../interfaces/_shared_events_roundoverevent_.roundoverevent.html">RoundOverEvent</a> is generated by calling [[GameEngineImpl.processRound]]
 										and is sent to both players. This method waits <a href="_server_models_lobby_.lobby.html#_round_delay">_ROUND_DELAY</a> milliseconds until it then either calls
 										<a href="_server_models_lobby_.lobby.html#endgame">endGame</a> if either player has reached <a href="_server_models_lobby_.lobby.html#_first_to">_FIRST_TO</a> points, otherwise it will begin a new round
 									by calling <a href="_server_models_lobby_.lobby.html#beginround">beginRound</a>.</p>
@@ -323,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L106">server/models/Lobby.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L107">server/models/Lobby.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -361,7 +364,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L60">server/models/Lobby.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L61">server/models/Lobby.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,7 +399,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L186">server/models/Lobby.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L187">server/models/Lobby.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -421,16 +424,16 @@
 					<a name="getgameengine" class="tsd-anchor"></a>
 					<h3>get<wbr>Game<wbr>Engine</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Game<wbr>Engine<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Game<wbr>Engine<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_interfaces_igameengine_.igameengine.html" class="tsd-signature-type">IGameEngine</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L214">server/models/Lobby.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L215">server/models/Lobby.ts:215</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_server_models_gameengine_.gameengine.html" class="tsd-signature-type">GameEngine</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_server_interfaces_igameengine_.igameengine.html" class="tsd-signature-type">IGameEngine</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -444,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L206">server/models/Lobby.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L207">server/models/Lobby.ts:207</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -461,7 +464,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L210">server/models/Lobby.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L211">server/models/Lobby.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">WebSocket</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -478,7 +481,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/Lobby.ts#L201">server/models/Lobby.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/models/Lobby.ts#L202">server/models/Lobby.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -511,9 +514,6 @@
 						<a href="../modules/_client_script_.html">"client/script"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_gameengineimpl_.html">"server/<wbr>Game<wbr>Engine<wbr>Impl"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_roundresultimpl_.html">"server/<wbr>Round<wbr>Result<wbr>Impl"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -529,6 +529,12 @@
 						<a href="../modules/_server_index_.html">"server/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_interfaces_igameengine_.html">"server/interfaces/IGame<wbr>Engine"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_interfaces_igamerules_.html">"server/interfaces/IGame<wbr>Rules"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_models_gameengine_.html">"server/models/<wbr>Game<wbr>Engine"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
@@ -539,6 +545,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_models_server_.html">"server/models/<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_models_standardrules_.html">"server/models/<wbr>Standard<wbr>Rules"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_shared_events_begingameevent_.html">"shared/events/<wbr>Begin<wbr>Game<wbr>Event"</a>

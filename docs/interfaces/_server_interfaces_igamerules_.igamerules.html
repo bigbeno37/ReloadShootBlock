@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GameEngine | Reload, Shoot, Block!</title>
+	<title>IGameRules | Reload, Shoot, Block!</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_server_models_gameengine_.html">&quot;server/models/GameEngine&quot;</a>
+					<a href="../modules/_server_interfaces_igamerules_.html">&quot;server/interfaces/IGameRules&quot;</a>
 				</li>
 				<li>
-					<a href="_server_models_gameengine_.gameengine.html">GameEngine</a>
+					<a href="_server_interfaces_igamerules_.igamerules.html">IGameRules</a>
 				</li>
 			</ul>
-			<h1>Interface GameEngine</h1>
+			<h1>Interface IGameRules</h1>
 		</div>
 	</div>
 </header>
@@ -73,14 +73,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GameEngine</span>
+						<span class="target">IGameRules</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_server_gameengineimpl_.gameengineimpl.html" class="tsd-signature-type">GameEngineImpl</a></li>
+					<li><a href="../classes/_server_models_standardrules_.standardrules.html" class="tsd-signature-type">StandardRules</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -90,9 +90,10 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_models_gameengine_.gameengine.html#getplayer1" class="tsd-kind-icon">get<wbr>Player1</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_models_gameengine_.gameengine.html#getplayer2" class="tsd-kind-icon">get<wbr>Player2</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_models_gameengine_.gameengine.html#processround" class="tsd-kind-icon">process<wbr>Round</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igamerules_.igamerules.html#createplayer" class="tsd-kind-icon">create<wbr>Player</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igamerules_.igamerules.html#onblock" class="tsd-kind-icon">on<wbr>Block</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igamerules_.igamerules.html#onreload" class="tsd-kind-icon">on<wbr>Reload</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_interfaces_igamerules_.igamerules.html#onshoot" class="tsd-kind-icon">on<wbr>Shoot</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,21 +102,21 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getplayer1" class="tsd-anchor"></a>
-					<h3>get<wbr>Player1</h3>
+					<a name="createplayer" class="tsd-anchor"></a>
+					<h3>create<wbr>Player</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Player1<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Player<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/GameEngine.ts#L9">server/models/GameEngine.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameRules.ts#L33">server/interfaces/IGameRules.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns player 1</p>
+									<p>Return a new instance of <a href="../classes/_server_models_player_.player.html">Player</a> with desired properties (e.g. max bullets)</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h4>
@@ -123,48 +124,101 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getplayer2" class="tsd-anchor"></a>
-					<h3>get<wbr>Player2</h3>
+					<a name="onblock" class="tsd-anchor"></a>
+					<h3>on<wbr>Block</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Player2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Block<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a>, opponentsChoice<span class="tsd-signature-symbol">: </span><a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/GameEngine.ts#L15">server/models/GameEngine.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameRules.ts#L27">server/interfaces/IGameRules.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns player 2</p>
+									<p>The player blocked, so determine actions to take on this <a href="../classes/_server_models_player_.player.html">Player</a> given the opponent&#39;s <a href="../enums/_server_enums_events_.events.html">Events</a> choice.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>player: <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h5>
+								</li>
+								<li>
+									<h5>opponentsChoice: <a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="processround" class="tsd-anchor"></a>
-					<h3>process<wbr>Round</h3>
+					<a name="onreload" class="tsd-anchor"></a>
+					<h3>on<wbr>Reload</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">process<wbr>Round<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shared_events_roundresult_.roundresult.html" class="tsd-signature-type">RoundResult</a></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Reload<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a>, opponentsChoice<span class="tsd-signature-symbol">: </span><a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/85c6e12/src/server/models/GameEngine.ts#L23">server/models/GameEngine.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameRules.ts#L11">server/interfaces/IGameRules.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Based on Player.getChoice() for both players, calculate what actions are to be
-										taken (e.g. if a player should lose a bullet, win a point, etc.) and return the
-									winning player. If the round is a draw, return the reason.</p>
+									<p>The player reloaded, so determine actions to take on this <a href="../classes/_server_models_player_.player.html">Player</a> given the opponentsChoice&#39;s <a href="../enums/_server_enums_events_.events.html">Events</a> choice.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_shared_events_roundresult_.roundresult.html" class="tsd-signature-type">RoundResult</a></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>player: <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h5>
+								</li>
+								<li>
+									<h5>opponentsChoice: <a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="onshoot" class="tsd-anchor"></a>
+					<h3>on<wbr>Shoot</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Shoot<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a>, opponentsChoice<span class="tsd-signature-symbol">: </span><a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bigbeno37/ReloadShootBlock/blob/f6010ae/src/server/interfaces/IGameRules.ts#L19">server/interfaces/IGameRules.ts:19</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The player shot, so determine actions to take on this <a href="../classes/_server_models_player_.player.html">Player</a> given the opponent&#39;s <a href="../enums/_server_enums_events_.events.html">Events</a> choice.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>player: <a href="../classes/_server_models_player_.player.html" class="tsd-signature-type">Player</a></h5>
+								</li>
+								<li>
+									<h5>opponentsChoice: <a href="../enums/_server_enums_events_.events.html" class="tsd-signature-type">Events</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -178,9 +232,6 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_client_script_.html">"client/script"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_gameengineimpl_.html">"server/<wbr>Game<wbr>Engine<wbr>Impl"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_roundresultimpl_.html">"server/<wbr>Round<wbr>Result<wbr>Impl"</a>
@@ -197,7 +248,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_index_.html">"server/index"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_interfaces_igameengine_.html">"server/interfaces/IGame<wbr>Engine"</a>
+					</li>
 					<li class="current tsd-kind-external-module">
+						<a href="../modules/_server_interfaces_igamerules_.html">"server/interfaces/IGame<wbr>Rules"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_models_gameengine_.html">"server/models/<wbr>Game<wbr>Engine"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -208,6 +265,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_models_server_.html">"server/models/<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_models_standardrules_.html">"server/models/<wbr>Standard<wbr>Rules"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_shared_events_begingameevent_.html">"shared/events/<wbr>Begin<wbr>Game<wbr>Event"</a>
@@ -240,16 +300,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_server_models_gameengine_.gameengine.html" class="tsd-kind-icon">Game<wbr>Engine</a>
+						<a href="_server_interfaces_igamerules_.igamerules.html" class="tsd-kind-icon">IGame<wbr>Rules</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_server_models_gameengine_.gameengine.html#getplayer1" class="tsd-kind-icon">get<wbr>Player1</a>
+								<a href="_server_interfaces_igamerules_.igamerules.html#createplayer" class="tsd-kind-icon">create<wbr>Player</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_server_models_gameengine_.gameengine.html#getplayer2" class="tsd-kind-icon">get<wbr>Player2</a>
+								<a href="_server_interfaces_igamerules_.igamerules.html#onblock" class="tsd-kind-icon">on<wbr>Block</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_server_models_gameengine_.gameengine.html#processround" class="tsd-kind-icon">process<wbr>Round</a>
+								<a href="_server_interfaces_igamerules_.igamerules.html#onreload" class="tsd-kind-icon">on<wbr>Reload</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_server_interfaces_igamerules_.igamerules.html#onshoot" class="tsd-kind-icon">on<wbr>Shoot</a>
 							</li>
 						</ul>
 					</li>
