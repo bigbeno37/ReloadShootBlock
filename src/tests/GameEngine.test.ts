@@ -1,13 +1,14 @@
-import GameEngine from "../server/models/GameEngine";
 import Events from '../server/enums/Events';
-import GameEngineImpl from "../server/GameEngineImpl";
 import InvalidChoiceError from "../server/errors/InvalidChoiceError";
+import IGameEngine from "../server/interfaces/IGameEngine";
+import GameEngine from "../server/models/GameEngine";
+import StandardRules from "../server/models/StandardRules";
 
-let gameEngine: GameEngine;
+let gameEngine: IGameEngine;
 
 describe('Game Engine', () => {
     beforeEach(() => {
-        gameEngine = new GameEngineImpl();
+        gameEngine = new GameEngine(new StandardRules());
     });
 
     it('removes a bullet when a player shoots', () => {
